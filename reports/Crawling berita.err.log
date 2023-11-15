@@ -1,0 +1,61 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Indeks kalimat yang akan dibandingkan
+sentence1_index = 0  # Ganti dengan indeks kalimat pertama yang ingin Anda bandingkan
+sentence2_index = 1  # Ganti dengan indeks kalimat kedua yang ingin Anda bandingkan
+
+# Ambil vektor TF-IDF untuk kedua kalimat
+tfidf_vector1 = tfidf_matrix[sentence1_index]
+tfidf_vector2 = tfidf_matrix[sentence2_index]
+
+# Hitung cosine similarity antara kedua vektor
+similarity = cosine_similarity(tfidf_vector1, tfidf_vector2)
+
+# Cetak hasil cosine similarity
+print(f"Cosine Similarity antara Kalimat {sentence1_index + 1} dan Kalimat {sentence2_index + 1}: {similarity[0][0]:.4f}")
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-11-36616d964d19>[0m in [0;36m<cell line: 10>[0;34m()[0m
+[1;32m      8[0m [0;31m# Ambil vektor TF-IDF untuk kedua kalimat[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0mtfidf_vector1[0m [0;34m=[0m [0mtfidf_matrix[0m[0;34m[[0m[0msentence1_index[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m [0mtfidf_vector2[0m [0;34m=[0m [0mtfidf_matrix[0m[0;34m[[0m[0msentence2_index[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0;31m# Hitung cosine similarity antara kedua vektor[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/scipy/sparse/_index.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m     42[0m [0;34m[0m[0m
+[1;32m     43[0m     [0;32mdef[0m [0m__getitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 44[0;31m         [0mrow[0m[0;34m,[0m [0mcol[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_validate_indices[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     45[0m [0;34m[0m[0m
+[1;32m     46[0m         [0;31m# Dispatch to specialized methods.[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/scipy/sparse/_index.py[0m in [0;36m_validate_indices[0;34m(self, key)[0m
+[1;32m    150[0m             [0mrow[0m [0;34m=[0m [0mint[0m[0;34m([0m[0mrow[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    151[0m             [0;32mif[0m [0mrow[0m [0;34m<[0m [0;34m-[0m[0mM[0m [0;32mor[0m [0mrow[0m [0;34m>=[0m [0mM[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 152[0;31m                 [0;32mraise[0m [0mIndexError[0m[0;34m([0m[0;34m'row index (%d) out of range'[0m [0;34m%[0m [0mrow[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    153[0m             [0;32mif[0m [0mrow[0m [0;34m<[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    154[0m                 [0mrow[0m [0;34m+=[0m [0mM[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mIndexError[0m: row index (1) out of range
+
