@@ -430,15 +430,15 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting Sastrawi
   Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/209.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">41.0/209.7 kB</span> <span class=" -Color -Color-Red">1.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">3.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">92.2/209.7 kB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">4.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: Sastrawi
-Successfully installed Sastrawi-1.0.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed Sastrawi-1.0.1
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
@@ -532,8 +532,39 @@ Tags: ASFISfilmKearifanLayarLokalPendekradarjatim.id
 
 <span class="c1"># Tokenisasi setiap kalimat menjadi kata-kata</span>
 <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#custome stopword</span>
 
-<span class="c1"># Stopword Removal</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+
+<span class="c1"># Mengambil daftar stopword bahasa Indonesia dari NLTK</span>
+<span class="n">stopwords_indonesia</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;indonesian&quot;</span><span class="p">))</span>
+
+<span class="c1"># Sekarang, Anda memiliki daftar stopword yang telah diperbarui</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stopwords_indonesia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;setempat&#39;, &#39;mampu&#39;, &#39;dibuatnya&#39;, &#39;selain&#39;, &#39;belakangan&#39;, &#39;bermaksud&#39;, &#39;menggunakan&#39;, &#39;beri&#39;, &#39;padanya&#39;, &#39;tuturnya&#39;, &#39;gunakan&#39;, &#39;katanya&#39;, &#39;kelima&#39;, &#39;inilah&#39;, &#39;jelasnya&#39;, &#39;sebaliknya&#39;, &#39;satu&#39;, &#39;malah&#39;, &#39;betul&#39;, &#39;jelaskan&#39;, &#39;kalaupun&#39;, &#39;ingat&#39;, &#39;hal&#39;, &#39;memerlukan&#39;, &#39;sebegini&#39;, &#39;semula&#39;, &#39;dituturkannya&#39;, &#39;seperti&#39;, &#39;tahu&#39;, &#39;misalkan&#39;, &#39;hanyalah&#39;, &#39;seseorang&#39;, &#39;tutur&#39;, &#39;andalah&#39;, &#39;se&#39;, &#39;padahal&#39;, &#39;didapat&#39;, &#39;sejauh&#39;, &#39;memulai&#39;, &#39;diakhirinya&#39;, &#39;sampai-sampai&#39;, &#39;terjadi&#39;, &#39;adapun&#39;, &#39;biasanya&#39;, &#39;asal&#39;, &#39;sekadar&#39;, &#39;kembali&#39;, &#39;bagaikan&#39;, &#39;ditambahkan&#39;, &#39;jangankan&#39;, &#39;luar&#39;, &#39;dikatakan&#39;, &#39;sambil&#39;, &#39;seketika&#39;, &#39;melakukan&#39;, &#39;kecil&#39;, &#39;yakni&#39;, &#39;pada&#39;, &#39;ditunjukkannya&#39;, &#39;telah&#39;, &#39;terdahulu&#39;, &#39;maupun&#39;, &#39;akankah&#39;, &#39;bukankah&#39;, &#39;memastikan&#39;, &#39;inikah&#39;, &#39;tak&#39;, &#39;tanyanya&#39;, &#39;pentingnya&#39;, &#39;meminta&#39;, &#39;mempergunakan&#39;, &#39;menyatakan&#39;, &#39;semata&#39;, &#39;tertentu&#39;, &#39;berdatangan&#39;, &#39;menanyai&#39;, &#39;semampunya&#39;, &#39;tanya&#39;, &#39;manalagi&#39;, &#39;teringat&#39;, &#39;hampir&#39;, &#39;rata&#39;, &#39;boleh&#39;, &#39;jawabnya&#39;, &#39;memungkinkan&#39;, &#39;jangan&#39;, &#39;menurut&#39;, &#39;semisalnya&#39;, &#39;sudah&#39;, &#39;tersampaikan&#39;, &#39;akhiri&#39;, &#39;tambahnya&#39;, &#39;menjelaskan&#39;, &#39;memang&#39;, &#39;ungkap&#39;, &#39;merasa&#39;, &#39;tetap&#39;, &#39;pertanyakan&#39;, &#39;berawal&#39;, &#39;keterlaluan&#39;, &#39;pernah&#39;, &#39;jumlah&#39;, &#39;misalnya&#39;, &#39;berapakah&#39;, &#39;sehingga&#39;, &#39;lama&#39;, &#39;seringnya&#39;, &#39;belumlah&#39;, &#39;sebaik&#39;, &#39;mana&#39;, &#39;baru&#39;, &#39;juga&#39;, &#39;kala&#39;, &#39;masalahnya&#39;, &#39;nanti&#39;, &#39;sesama&#39;, &#39;diperlihatkan&#39;, &#39;ditandaskan&#39;, &#39;tiba-tiba&#39;, &#39;umum&#39;, &#39;enggak&#39;, &#39;keluar&#39;, &#39;menunjuknya&#39;, &#39;melainkan&#39;, &#39;sekarang&#39;, &#39;rupanya&#39;, &#39;diinginkan&#39;, &#39;ikut&#39;, &#39;ada&#39;, &#39;mempertanyakan&#39;, &#39;mungkinkah&#39;, &#39;kira&#39;, &#39;balik&#39;, &#39;tepat&#39;, &#39;sedikitnya&#39;, &#39;kini&#39;, &#39;sedemikian&#39;, &#39;tempat&#39;, &#39;kelihatan&#39;, &#39;jadilah&#39;, &#39;kalaulah&#39;, &#39;sebagaimana&#39;, &#39;jika&#39;, &#39;kenapa&#39;, &#39;artinya&#39;, &#39;keseluruhannya&#39;, &#39;mengerjakan&#39;, &#39;semakin&#39;, &#39;jawaban&#39;, &#39;semacam&#39;, &#39;berbagai&#39;, &#39;kalian&#39;, &#39;mirip&#39;, &#39;setengah&#39;, &#39;beginikah&#39;, &#39;bulan&#39;, &#39;bila&#39;, &#39;dimaksudkannya&#39;, &#39;mampukah&#39;, &#39;amatlah&#39;, &#39;mengenai&#39;, &#39;sekitar&#39;, &#39;seusai&#39;, &#39;ungkapnya&#39;, &#39;mendatangi&#39;, &#39;terasa&#39;, &#39;berikut&#39;, &#39;pasti&#39;, &#39;sinilah&#39;, &#39;disebut&#39;, &#39;berikutnya&#39;, &#39;wahai&#39;, &#39;dalam&#39;, &#39;sebuah&#39;, &#39;mereka&#39;, &#39;selanjutnya&#39;, &#39;bukanlah&#39;, &#39;ditegaskan&#39;, &#39;kelihatannya&#39;, &#39;dilalui&#39;, &#39;dirinya&#39;, &#39;lima&#39;, &#39;dimaksudkan&#39;, &#39;kiranya&#39;, &#39;dilakukan&#39;, &#39;berkehendak&#39;, &#39;seorang&#39;, &#39;menanti&#39;, &#39;walau&#39;, &#39;bersama&#39;, &#39;baik&#39;, &#39;sejumlah&#39;, &#39;bilakah&#39;, &#39;makanya&#39;, &#39;maka&#39;, &#39;tiga&#39;, &#39;karenanya&#39;, &#39;nyaris&#39;, &#39;dikerjakan&#39;, &#39;seolah&#39;, &#39;tegasnya&#39;, &#39;berada&#39;, &#39;merupakan&#39;, &#39;setidaknya&#39;, &#39;sini&#39;, &#39;sendiri&#39;, &#39;terjadilah&#39;, &#39;meski&#39;, &#39;menandaskan&#39;, &#39;nyatanya&#39;, &#39;terus&#39;, &#39;sekadarnya&#39;, &#39;berkali-kali&#39;, &#39;menjawab&#39;, &#39;ternyata&#39;, &#39;seterusnya&#39;, &#39;dahulu&#39;, &#39;empat&#39;, &#39;meyakinkan&#39;, &#39;selaku&#39;, &#39;rasa&#39;, &#39;ibarat&#39;, &#39;beginian&#39;, &#39;diantaranya&#39;, &#39;diperlukannya&#39;, &#39;waduh&#39;, &#39;jauh&#39;, &#39;karena&#39;, &#39;sedikit&#39;, &#39;bahwa&#39;, &#39;terlalu&#39;, &#39;bolehlah&#39;, &#39;suatu&#39;, &#39;ke&#39;, &#39;harus&#39;, &#39;akan&#39;, &#39;memperlihatkan&#39;, &#39;hendaknya&#39;, &#39;sebut&#39;, &#39;percuma&#39;, &#39;soalnya&#39;, &#39;sebaiknya&#39;, &#39;enggaknya&#39;, &#39;menunjukkan&#39;, &#39;perlukah&#39;, &#39;kesampaian&#39;, &#39;persoalan&#39;, &#39;tahun&#39;, &#39;supaya&#39;, &#39;jelas&#39;, &#39;didatangkan&#39;, &#39;mulai&#39;, &#39;tadinya&#39;, &#39;dijawab&#39;, &#39;tengah&#39;, &#39;terdapat&#39;, &#39;bukannya&#39;, &#39;merekalah&#39;, &#39;mula&#39;, &#39;entahlah&#39;, &#39;kitalah&#39;, &#39;seolah-olah&#39;, &#39;tadi&#39;, &#39;dari&#39;, &#39;ingin&#39;, &#39;ucapnya&#39;, &#39;dapat&#39;, &#39;mungkin&#39;, &#39;sebagian&#39;, &#39;menyiapkan&#39;, &#39;hari&#39;, &#39;lainnya&#39;, &#39;sesuatunya&#39;, &#39;lanjutnya&#39;, &#39;besar&#39;, &#39;berakhir&#39;, &#39;rasanya&#39;, &#39;menaiki&#39;, &#39;menghendaki&#39;, &#39;sekaligus&#39;, &#39;terhadap&#39;, &#39;jumlahnya&#39;, &#39;lagian&#39;, &#39;terkira&#39;, &#39;semaunya&#39;, &#39;semata-mata&#39;, &#39;seluruhnya&#39;, &#39;sekurangnya&#39;, &#39;ditanyakan&#39;, &#39;sudahkah&#39;, &#39;bung&#39;, &#39;sangatlah&#39;, &#39;bagai&#39;, &#39;berlalu&#39;, &#39;sedang&#39;, &#39;mendatangkan&#39;, &#39;ataukah&#39;, &#39;sebab&#39;, &#39;begitupun&#39;, &#39;ditunjuknya&#39;, &#39;saya&#39;, &#39;dua&#39;, &#39;pula&#39;, &#39;beginilah&#39;, &#39;seenaknya&#39;, &#39;memberi&#39;, &#39;dikira&#39;, &#39;disinilah&#39;, &#39;hendak&#39;, &#39;semisal&#39;, &#39;mulailah&#39;, &#39;dimulainya&#39;, &#39;akhirnya&#39;, &#39;apabila&#39;, &#39;sedangkan&#39;, &#39;pertama&#39;, &#39;akhir&#39;, &#39;anda&#39;, &#39;diberikannya&#39;, &#39;jadi&#39;, &#39;belakang&#39;, &#39;secara&#39;, &#39;seingat&#39;, &#39;diungkapkan&#39;, &#39;diberikan&#39;, &#39;mempersoalkan&#39;, &#39;tersebut&#39;, &#39;ujarnya&#39;, &#39;diingat&#39;, &#39;dilihat&#39;, &#39;meskipun&#39;, &#39;ditanya&#39;, &#39;antara&#39;, &#39;kamulah&#39;, &#39;menegaskan&#39;, &#39;setinggi&#39;, &#39;bakal&#39;, &#39;dimaksud&#39;, &#39;tambah&#39;, &#39;secukupnya&#39;, &#39;lamanya&#39;, &#39;waktunya&#39;, &#39;bertanya-tanya&#39;, &#39;menunjuki&#39;, &#39;semua&#39;, &#39;tentulah&#39;, &#39;bahkan&#39;, &#39;sebanyak&#39;, &#39;saling&#39;, &#39;sebegitu&#39;, &#39;semuanya&#39;, &#39;siapakah&#39;, &#39;memperbuat&#39;, &#39;dimisalkan&#39;, &#39;sela&#39;, &#39;bekerja&#39;, &#39;dikarenakan&#39;, &#39;dan&#39;, &#39;sangat&#39;, &#39;berkenaan&#39;, &#39;aku&#39;, &#39;betulkah&#39;, &#39;menanya&#39;, &#39;siap&#39;, &#39;kelamaan&#39;, &#39;pihaknya&#39;, &#39;sebisanya&#39;, &#39;sebelumnya&#39;, &#39;menyeluruh&#39;, &#39;selama&#39;, &#39;dulu&#39;, &#39;setiba&#39;, &#39;sepantasnyalah&#39;, &#39;berlebihan&#39;, &#39;sebetulnya&#39;, &#39;kepadanya&#39;, &#39;menjadi&#39;, &#39;bagi&#39;, &#39;segala&#39;, &#39;dengan&#39;, &#39;bersiap&#39;, &#39;lagi&#39;, &#39;mulanya&#39;, &#39;pantas&#39;, &#39;bapak&#39;, &#39;serupa&#39;, &#39;kita&#39;, &#39;wong&#39;, &#39;lalu&#39;, &#39;lanjut&#39;, &#39;misal&#39;, &#39;tanpa&#39;, &#39;depan&#39;, &#39;melihatnya&#39;, &#39;wah&#39;, &#39;agar&#39;, &#39;itulah&#39;, &#39;demikianlah&#39;, &#39;diketahui&#39;, &#39;khususnya&#39;, &#39;bahwasanya&#39;, &#39;setidak-tidaknya&#39;, &#39;cukuplah&#39;, &#39;sesudah&#39;, &#39;diperbuat&#39;, &#39;untuk&#39;, &#39;seperlunya&#39;, &#39;memisalkan&#39;, &#39;sampaikan&#39;, &#39;berapalah&#39;, &#39;diperlukan&#39;, &#39;bertutur&#39;, &#39;masing-masing&#39;, &#39;disini&#39;, &#39;terutama&#39;, &#39;cara&#39;, &#39;begitu&#39;, &#39;diibaratkannya&#39;, &#39;kamilah&#39;, &#39;memperkirakan&#39;, &#39;bisa&#39;, &#39;kebetulan&#39;, &#39;ditujukan&#39;, &#39;bolehkah&#39;, &#39;cukup&#39;, &#39;kemudian&#39;, &#39;menyampaikan&#39;, &#39;diri&#39;, &#39;dijelaskannya&#39;, &#39;terhadapnya&#39;, &#39;walaupun&#39;, &#39;apa&#39;, &#39;demi&#39;, &#39;olehnya&#39;, &#39;namun&#39;, &#39;nantinya&#39;, &#39;semasih&#39;, &#39;berujar&#39;, &#39;yakin&#39;, &#39;berakhirnya&#39;, &#39;dipergunakan&#39;, &#39;antaranya&#39;, &#39;setiap&#39;, &#39;datang&#39;, &#39;dipunyai&#39;, &#39;mengakhiri&#39;, &#39;akulah&#39;, &#39;segalanya&#39;, &#39;bermacam-macam&#39;, &#39;berturut-turut&#39;, &#39;paling&#39;, &#39;berapa&#39;, &#39;sekecil&#39;, &#39;selamanya&#39;, &#39;seberapa&#39;, &#39;waktu&#39;, &#39;inginkan&#39;, &#39;mengucapkannya&#39;, &#39;benar&#39;, &#39;sana&#39;, &#39;keadaan&#39;, &#39;pak&#39;, &#39;ditunjukkan&#39;, &#39;adalah&#39;, &#39;tampaknya&#39;, &#39;diakhiri&#39;, &#39;sekitarnya&#39;, &#39;saat&#39;, &#39;ditanyai&#39;, &#39;sepihak&#39;, &#39;apatah&#39;, &#39;sering&#39;, &#39;memihak&#39;, &#39;adanya&#39;, &#39;digunakan&#39;, &#39;banyak&#39;, &#39;agak&#39;, &#39;meyakini&#39;, &#39;termasuk&#39;, &#39;sejenak&#39;, &#39;umumnya&#39;, &#39;ialah&#39;, &#39;awal&#39;, &#39;asalkan&#39;, &#39;agaknya&#39;, &#39;malahan&#39;, &#39;macam&#39;, &#39;tampak&#39;, &#39;sajalah&#39;, &#39;dipastikan&#39;, &#39;mengingat&#39;, &#39;berarti&#39;, &#39;usai&#39;, &#39;seharusnya&#39;, &#39;jawab&#39;, &#39;tiba&#39;, &#39;menginginkan&#39;, &#39;mempersiapkan&#39;, &#39;terjadinya&#39;, &#39;menanti-nanti&#39;, &#39;kapanpun&#39;, &#39;tunjuk&#39;, &#39;biasa&#39;, &#39;mengira&#39;, &#39;sesampai&#39;, &#39;berturut&#39;, &#39;memintakan&#39;, &#39;tegas&#39;, &#39;apakah&#39;, &#39;siapa&#39;, &#39;disebutkannya&#39;, &#39;mengibaratkan&#39;, &#39;bagaimanapun&#39;, &#39;sesegera&#39;, &#39;diperbuatnya&#39;, &#39;sekali&#39;, &#39;bagian&#39;, &#39;semampu&#39;, &#39;punya&#39;, &#39;perlu&#39;, &#39;manakala&#39;, &#39;tinggi&#39;, &#39;keduanya&#39;, &#39;daripada&#39;, &#39;berkeinginan&#39;, &#39;mendapatkan&#39;, &#39;tandas&#39;, &#39;kapankah&#39;, &#39;saja&#39;, &#39;sempat&#39;, &#39;jelaslah&#39;, &#39;amat&#39;, &#39;mengetahui&#39;, &#39;membuat&#39;, &#39;saatnya&#39;, &#39;berupa&#39;, &#39;menyebutkan&#39;, &#39;sendirinya&#39;, &#39;beberapa&#39;, &#39;mempunyai&#39;, &#39;di&#39;, &#39;selama-lamanya&#39;, &#39;kinilah&#39;, &#39;makin&#39;, &#39;sebagainya&#39;, &#39;mau&#39;, &#39;dipersoalkan&#39;, &#39;masa&#39;, &#39;lain&#39;, &#39;bermacam&#39;, &#39;ingat-ingat&#39;, &#39;yaitu&#39;, &#39;selalu&#39;, &#39;sesaat&#39;, &#39;dituturkan&#39;, &#39;bakalan&#39;, &#39;diketahuinya&#39;, &#39;berlainan&#39;, &#39;guna&#39;, &#39;kalau&#39;, &#39;diberi&#39;, &#39;dimulailah&#39;, &#39;masih&#39;, &#39;mengucapkan&#39;, &#39;demikian&#39;, &#39;memberikan&#39;, &#39;begitulah&#39;, &#39;sesekali&#39;, &#39;oleh&#39;, &#39;sayalah&#39;, &#39;siapapun&#39;, &#39;benarlah&#39;, &#39;ujar&#39;, &#39;pukul&#39;, &#39;semasa&#39;, &#39;disampaikan&#39;, &#39;sebagai&#39;, &#39;terlihat&#39;, &#39;berapapun&#39;, &#39;kepada&#39;, &#39;apaan&#39;, &#39;sebabnya&#39;, &#39;sejak&#39;, &#39;kami&#39;, &#39;ketika&#39;, &#39;mengatakan&#39;, &#39;dimaksudnya&#39;, &#39;ataupun&#39;, &#39;cukupkah&#39;, &#39;terbanyak&#39;, &#39;bukan&#39;, &#39;sebaik-baiknya&#39;, &#39;jikalau&#39;, &#39;buat&#39;, &#39;turut&#39;, &#39;sepantasnya&#39;, &#39;para&#39;, &#39;usah&#39;, &#39;sebutnya&#39;, &#39;sesudahnya&#39;, &#39;dimungkinkan&#39;, &#39;dijelaskan&#39;, &#39;kemungkinannya&#39;, &#39;diibaratkan&#39;, &#39;ditunjuk&#39;, &#39;dipertanyakan&#39;, &#39;masalah&#39;, &#39;segera&#39;, &#39;menuju&#39;, &#39;terlebih&#39;, &#39;begini&#39;, &#39;dikatakannya&#39;, &#39;atau&#39;, &#39;tidaklah&#39;, &#39;kasus&#39;, &#39;pertama-tama&#39;, &#39;dia&#39;, &#39;serta&#39;, &#39;bawah&#39;, &#39;nah&#39;, &#39;diantara&#39;, &#39;panjang&#39;, &#39;pertanyaan&#39;, &#39;sama&#39;, &#39;mendatang&#39;, &#39;ditunjuki&#39;, &#39;per&#39;, &#39;tersebutlah&#39;, &#39;berkata&#39;, &#39;lewat&#39;, &#39;tentu&#39;, &#39;bisakah&#39;, &#39;mengibaratkannya&#39;, &#39;tandasnya&#39;, &#39;mendapat&#39;, &#39;pihak&#39;, &#39;dong&#39;, &#39;itu&#39;, &#39;bertanya&#39;, &#39;entah&#39;, &#39;tidak&#39;, &#39;bagaimana&#39;, &#39;belum&#39;, &#39;mengapa&#39;, &#39;dibuat&#39;, &#39;kata&#39;, &#39;antar&#39;, &#39;berikan&#39;, &#39;disebutkan&#39;, &#39;mengatakannya&#39;, &#39;berjumlah&#39;, &#39;sekurang-kurangnya&#39;, &#39;apalagi&#39;, &#39;sebutlah&#39;, &#39;keseluruhan&#39;, &#39;menambahkan&#39;, &#39;toh&#39;, &#39;minta&#39;, &#39;tentunya&#39;, &#39;lebih&#39;, &#39;awalnya&#39;, &#39;hanya&#39;, &#39;naik&#39;, &#39;justru&#39;, &#39;sekalipun&#39;, &#39;kamu&#39;, &#39;kapan&#39;, &#39;harusnya&#39;, &#39;menyangkut&#39;, &#39;setibanya&#39;, &#39;sesuatu&#39;, &#39;ini&#39;, &#39;kemungkinan&#39;, &#39;masing&#39;, &#39;sekali-kali&#39;, &#39;melalui&#39;, &#39;sementara&#39;, &#39;ibaratkan&#39;, &#39;dimulai&#39;, &#39;teringat-ingat&#39;, &#39;itukah&#39;, &#39;sepanjang&#39;, &#39;diperkirakan&#39;, &#39;sudahlah&#39;, &#39;sepertinya&#39;, &#39;pun&#39;, &#39;tentang&#39;, &#39;inginkah&#39;, &#39;sama-sama&#39;, &#39;melihat&#39;, &#39;hendaklah&#39;, &#39;atas&#39;, &#39;masihkah&#39;, &#39;sekalian&#39;, &#39;pastilah&#39;, &#39;sebenarnya&#39;, &#39;sekiranya&#39;, &#39;bersama-sama&#39;, &#39;bersiap-siap&#39;, &#39;sewaktu&#39;, &#39;diminta&#39;, &#39;seluruh&#39;, &#39;diucapkan&#39;, &#39;berlangsung&#39;, &#39;kan&#39;, &#39;menanyakan&#39;, &#39;kira-kira&#39;, &#39;kurang&#39;, &#39;perlunya&#39;, &#39;caranya&#39;, &#39;dimintai&#39;, &#39;soal&#39;, &#39;penting&#39;, &#39;tetapi&#39;, &#39;lah&#39;, &#39;sendirian&#39;, &#39;mengingatkan&#39;, &#39;ucap&#39;, &#39;diingatkan&#39;, &#39;tanyakan&#39;, &#39;sebelum&#39;, &#39;tapi&#39;, &#39;terdiri&#39;, &#39;keinginan&#39;, &#39;diucapkannya&#39;, &#39;katakanlah&#39;, &#39;setelah&#39;, &#39;katakan&#39;, &#39;janganlah&#39;, &#39;yang&#39;, &#39;haruslah&#39;, &#39;dialah&#39;, &#39;menunjuk&#39;, &#39;jadinya&#39;, &#39;mengungkapkan&#39;, &#39;tiap&#39;, &#39;kedua&#39;, &#39;berakhirlah&#39;, &#39;sebesar&#39;, &#39;bagaimanakah&#39;, &#39;ibu&#39;, &#39;ia&#39;, &#39;bermula&#39;, &#39;dekat&#39;, &#39;tertuju&#39;, &#39;ibaratnya&#39;, &#39;kok&#39;, &#39;benarkah&#39;, &#39;menuturkan&#39;, &#39;sampai&#39;, &#39;hingga&#39;, &#39;terakhir&#39;, &#39;menantikan&#39;, &#39;tidakkah&#39;, &#39;begitukah&#39;, &#39;cuma&#39;, &#39;dini&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stopword Removal</span>
 <span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
 <span class="n">filtered_sentences</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -575,407 +606,117 @@ Tags: ASFISfilmKearifanLayarLokalPendekradarjatim.id
 [&#39;berinteraksi&#39;, &#39;langsung&#39;, &#39;pembuatnya&#39;, &#39;belajar&#39;, &#39;langsung&#39;, &#39;ekspertnya&#39;, &#39;pungkas&#39;, &#39;rehal.mad&#39;, &#39;tags&#39;, &#39;asfisfilmkearifanlayarlokalpendekradarjatim.id&#39;]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Package punkt is already up-to-date!
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tabulate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tabulate in /usr/local/lib/python3.10/dist-packages (0.9.0)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 
-<span class="c1"># Inisialisasi penghitung TF-IDF</span>
-<span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="c1"># Assuming filtered_sentences is a list of sentences after stopword removal</span>
 
-<span class="c1"># Hitung TF-IDF</span>
-<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+<span class="c1"># Join the filtered sentences into a list of strings</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">filtered_sentences</span><span class="p">]</span>
 
-<span class="c1"># Daftar kata kunci</span>
-<span class="n">feature_names</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+<span class="c1"># Create the TF-IDF vectorizer</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
 
-<span class="c1"># Konversi matriks TF-IDF menjadi bentuk yang lebih mudah dibaca</span>
-<span class="n">tfidf_values</span> <span class="o">=</span> <span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="c1"># Fit and transform the corpus to get the TF-IDF matrix</span>
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
 
-<span class="c1"># Cetak TF-IDF untuk setiap kata dalam setiap kalimat</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sentences</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kalimat </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">sentence</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feature_names</span><span class="p">):</span>
-        <span class="n">tfidf_value</span> <span class="o">=</span> <span class="n">tfidf_values</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">tfidf_value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">tfidf_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">()</span>
+<span class="c1"># Get the feature names (words) from the vectorizer</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+
+<span class="c1"># Convert the TF-IDF matrix to a Pandas DataFrame for better visualization</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># Add a column for the sentences</span>
+<span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Kalimat&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">filtered_sentences</span><span class="p">])</span>
+
+<span class="c1"># Add a column for the sentence numbers</span>
+<span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_sentences</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Add a column for the count of terms in each sentence</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Term Count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Kalimat&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Set the display options for Pandas to show all columns without truncation</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Print the DataFrame in a tabular format with borders</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">tabulate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s1">&#39;keys&#39;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;fancy_grid&#39;</span><span class="p">,</span> <span class="n">showindex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kalimat 1: 
-sidoarjo radarjatim.id  komunitaskomunitas film pendek yang ada di sidoarjo terus bergerak mensosialisasikan keberadaan film pendek yang berkembang membaik.
-ada: 0.1525
-bergerak: 0.2435
-berkembang: 0.2435
-di: 0.1266
-film: 0.2150
-id: 0.2141
-keberadaan: 0.2435
-komunitaskomunitas: 0.2435
-membaik: 0.2435
-mensosialisasikan: 0.2435
-pendek: 0.4870
-radarjatim: 0.2435
-sidoarjo: 0.3050
-terus: 0.2435
-yang: 0.2531
-
-Kalimat 2: kali ini bertemakan keanekaragaman lokalitas dan budaya pada tanggal  oktober  di gedung dewan kesenian sidoarjo.
-bertemakan: 0.2866
-budaya: 0.2520
-dan: 0.1795
-dewan: 0.2866
-di: 0.1490
-gedung: 0.2866
-ini: 0.1681
-kali: 0.2866
-keanekaragaman: 0.2866
-kesenian: 0.2866
-lokalitas: 0.2866
-oktober: 0.2866
-pada: 0.2866
-sidoarjo: 0.1795
-tanggal: 0.2866
-
-Kalimat 3: festival yang memutar film layar lokal mengangkat kearifan lokal dari berbagai wilayah di indonesia tersebut tak diduga diserbu oleh para remaja ratarata pelajar sma smk sidoarjo surabaya dan sekitarnya.
-berbagai: 0.1690
-dan: 0.1334
-dari: 0.1432
-di: 0.1107
-diduga: 0.2130
-diserbu: 0.2130
-festival: 0.1334
-film: 0.0940
-indonesia: 0.1873
-kearifan: 0.1873
-layar: 0.1548
-lokal: 0.2668
-memutar: 0.2130
-mengangkat: 0.2130
-oleh: 0.2130
-para: 0.1690
-pelajar: 0.2130
-ratarata: 0.2130
-remaja: 0.2130
-sekitarnya: 0.2130
-sidoarjo: 0.1334
-sma: 0.2130
-smk: 0.2130
-surabaya: 0.1873
-tak: 0.2130
-tersebut: 0.2130
-wilayah: 0.2130
-yang: 0.1107
-
-Kalimat 4: sehingga panitia pun harus menambahkan kursi untuk penonton.
-harus: 0.3253
-kursi: 0.3701
-menambahkan: 0.3701
-panitia: 0.3701
-penonton: 0.3701
-pun: 0.3701
-sehingga: 0.3701
-untuk: 0.2689
-
-Kalimat 5: ketua asfis asosiasi sineas film sidoarjo rehal lahir prias sumputari mengatakan kalau kegiatannya mempunyai tiga program utama yaitu pelatihan workshop dan pemutaran film.
-asfis: 0.2225
-asosiasi: 0.2225
-dan: 0.1394
-film: 0.1965
-kalau: 0.2225
-kegiatannya: 0.2225
-ketua: 0.2225
-lahir: 0.2225
-mempunyai: 0.2225
-mengatakan: 0.2225
-pelatihan: 0.2225
-pemutaran: 0.2225
-prias: 0.2225
-program: 0.2225
-rehal: 0.1765
-sidoarjo: 0.1394
-sineas: 0.2225
-sumputari: 0.2225
-tiga: 0.2225
-utama: 0.2225
-workshop: 0.2225
-yaitu: 0.2225
-
-Kalimat 6: juga membantu temanteman komunitas film yang ada di sidoarjo khususnya untuk mendistribusikan karyakaryanya ke berbagai festival.
-ada: 0.1966
-berbagai: 0.2490
-di: 0.1631
-festival: 0.1966
-film: 0.1386
-juga: 0.2490
-karyakaryanya: 0.3139
-ke: 0.3139
-khususnya: 0.3139
-komunitas: 0.3139
-membantu: 0.3139
-mendistribusikan: 0.3139
-sidoarjo: 0.1966
-temanteman: 0.2110
-untuk: 0.2281
-yang: 0.1631
-
-Kalimat 7: karena kebanyakan temanteman saat ini kendalanya adalah bagaimana film ini setelah syuting.
-adalah: 0.3258
-bagaimana: 0.3258
-film: 0.1438
-ini: 0.3820
-karena: 0.3258
-kebanyakan: 0.2863
-kendalanya: 0.3258
-saat: 0.2584
-setelah: 0.3258
-syuting: 0.3258
-temanteman: 0.2190
-
-Kalimat 8: itu mau dikemanakan temanteman masih bingung apa saja yang harus disiapkan.
-apa: 0.3400
-bingung: 0.3400
-dikemanakan: 0.3400
-disiapkan: 0.3400
-harus: 0.2988
-itu: 0.2470
-masih: 0.2697
-mau: 0.3400
-saja: 0.3400
-temanteman: 0.2285
-yang: 0.1767
-
-Kalimat 9: itu menjadi tugas kami untuk bersamasama kita jalan lebih baik sebagai pembuat film.
-baik: 0.3057
-bersamasama: 0.3057
-film: 0.1349
-itu: 0.2221
-jalan: 0.3057
-kami: 0.3057
-kita: 0.2055
-lebih: 0.3057
-menjadi: 0.3057
-pembuat: 0.3057
-sebagai: 0.3057
-tugas: 0.3057
-untuk: 0.2221
-
-Kalimat 10: jadi tidak hanya membuat film tidak hanya film jadi disimpan dalam hard disk tapi film itu bisa berkeliling dan bertemu penontonnya ungkap rehal.
-berkeliling: 0.2024
-bertemu: 0.2024
-bisa: 0.1267
-dalam: 0.1605
-dan: 0.1267
-disimpan: 0.2024
-disk: 0.2024
-film: 0.2680
-hanya: 0.4048
-hard: 0.2024
-itu: 0.1470
-jadi: 0.3558
-membuat: 0.2024
-penontonnya: 0.2024
-rehal: 0.1605
-tapi: 0.2024
-tidak: 0.4048
-ungkap: 0.2024
-
-Kalimat 11: kemudian sekedar informasi juga layar lokal ini merupakan festival film independen satusatunya di jawa timur yang masih bertahan saat ini.
-bertahan: 0.2701
-di: 0.1404
-festival: 0.1691
-film: 0.1192
-independen: 0.2374
-informasi: 0.2701
-ini: 0.3167
-jawa: 0.2701
-juga: 0.2142
-kemudian: 0.2142
-layar: 0.1962
-lokal: 0.1691
-masih: 0.2142
-merupakan: 0.2701
-saat: 0.2142
-satusatunya: 0.2701
-sekedar: 0.2701
-timur: 0.2701
-yang: 0.1404
-
-Kalimat 12: yang lainnya kebanyakan dari kampus dari instansi pemerintah kemudian di tahun  atau  ya di surabaya itu masih ada satu festival film independen yang bergengsi namanya festival kecil namun perjalanannya terhenti.
-ada: 0.1282
-atau: 0.2047
-bergengsi: 0.2047
-dari: 0.2752
-di: 0.2128
-festival: 0.2564
-film: 0.0904
-independen: 0.1800
-instansi: 0.2047
-itu: 0.1488
-kampus: 0.2047
-kebanyakan: 0.1800
-kecil: 0.2047
-kemudian: 0.1624
-lainnya: 0.2047
-masih: 0.1624
-namanya: 0.2047
-namun: 0.2047
-pemerintah: 0.2047
-perjalanannya: 0.2047
-satu: 0.2047
-surabaya: 0.1800
-tahun: 0.1624
-terhenti: 0.2047
-ya: 0.2047
-yang: 0.2128
-
-Kalimat 13: dan saat ini kita alhamdulillah sudah berjalan selama  tahun dan semoga bisa berjalan di tahuntahun selanjutnya.
-alhamdulillah: 0.2667
-berjalan: 0.5334
-bisa: 0.1670
-dan: 0.3340
-di: 0.1386
-ini: 0.1564
-kita: 0.1793
-saat: 0.2116
-selama: 0.2667
-selanjutnya: 0.2667
-semoga: 0.2344
-sudah: 0.2667
-tahun: 0.2116
-tahuntahun: 0.2667
-
-Kalimat 14: tahun ini kita kembali membuka submission pendaftaran film untuk tingkat nasional.
-film: 0.1547
-ini: 0.2054
-kembali: 0.3503
-kita: 0.2355
-membuka: 0.3503
-nasional: 0.3503
-pendaftaran: 0.3503
-submission: 0.3503
-tahun: 0.2779
-tingkat: 0.3503
-untuk: 0.2546
-
-Kalimat 15: ada  film yang mendaftarkan dalam layar lokal kemudian dari  provinsi yang ada di indonesia mulai dari aceh sampai nusa tenggara barat.
-aceh: 0.2510
-ada: 0.3144
-barat: 0.2510
-dalam: 0.1991
-dari: 0.3374
-di: 0.1305
-film: 0.1108
-indonesia: 0.2206
-kemudian: 0.1991
-layar: 0.1824
-lokal: 0.1572
-mendaftarkan: 0.2510
-mulai: 0.2510
-nusa: 0.2510
-provinsi: 0.2510
-sampai: 0.2510
-tenggara: 0.2510
-yang: 0.2609
-
-Kalimat 16: pesen saya buat temanteman ini festival gratis full gratis kalian bisa menikmati filmfilm lokal dari berbagai daerah jelasnya.
-berbagai: 0.1994
-bisa: 0.1574
-buat: 0.2514
-daerah: 0.2514
-dari: 0.1690
-festival: 0.1574
-filmfilm: 0.2514
-full: 0.2514
-gratis: 0.5027
-ini: 0.1474
-jelasnya: 0.2514
-kalian: 0.2210
-lokal: 0.1574
-menikmati: 0.2514
-pesen: 0.2514
-saya: 0.2514
-temanteman: 0.1690
-
-Kalimat 17: kita bisa belajar tentang kearifan lokal maupun budaya yang ada di daerahdaerah di luar sidoarjo melalui festival film ini.
-ada: 0.1855
-belajar: 0.2604
-bisa: 0.1855
-budaya: 0.2604
-daerahdaerah: 0.2963
-di: 0.3080
-festival: 0.1855
-film: 0.1308
-ini: 0.1737
-kearifan: 0.2604
-kita: 0.1992
-lokal: 0.1855
-luar: 0.2604
-maupun: 0.2963
-melalui: 0.2963
-sidoarjo: 0.1855
-tentang: 0.2963
-yang: 0.1540
-
-Kalimat 18: semoga temanteman bisa hadir dan bisa menonton nantinya akan ada diskusi juga dengan para filmmakernya.
-ada: 0.1875
-akan: 0.2632
-bisa: 0.3750
-dan: 0.1875
-dengan: 0.2632
-diskusi: 0.2994
-filmmakernya: 0.2994
-hadir: 0.2632
-juga: 0.2375
-menonton: 0.2994
-nantinya: 0.2994
-para: 0.2375
-semoga: 0.2632
-temanteman: 0.2013
-
-Kalimat 19: filmmaker yang akan hadir sekitar  tamu dari luar kota yang terutama filmfilmnya lolos dalam layar lokal.
-akan: 0.2496
-dalam: 0.2252
-dari: 0.1909
-filmfilmnya: 0.2840
-filmmaker: 0.2840
-hadir: 0.2496
-kota: 0.2840
-layar: 0.2063
-lokal: 0.1778
-lolos: 0.2840
-luar: 0.2496
-sekitar: 0.2840
-tamu: 0.2840
-terutama: 0.2840
-yang: 0.2952
-
-Kalimat 20: jadi kalian bisa berinteraksi langsung dengan para pembuatnya kita belajar langsung dengan ekspertnya pungkas rehal.mad
-tags asfisfilmkearifanlayarlokalpendekradarjatim.id
-asfisfilmkearifanlayarlokalpendekradarjatim: 0.2277
-belajar: 0.2002
-berinteraksi: 0.2277
-bisa: 0.1426
-dengan: 0.4003
-ekspertnya: 0.2277
-id: 0.2002
-jadi: 0.2002
-kalian: 0.2002
-kita: 0.1531
-langsung: 0.4554
-mad: 0.2277
-para: 0.1806
-pembuatnya: 0.2277
-pungkas: 0.2277
-rehal: 0.1806
-tags: 0.2277
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>╒══════╤══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╤══════════╤═════════════════╤═════════╤═══════════════════════════════════════════════╤════════════╤══════════╤═══════════╤═════════════╤════════════╤════════════════╤════════════╤═══════════════╤══════════════╤═══════════════╤════════════╤══════════════╤═══════════╤═══════════╤══════════╤══════════╤════════════════╤══════════╤══════════╤═══════════════╤═══════════╤═════════════╤════════════╤══════════╤═══════════╤══════════════╤════════════╤══════════╤════════════╤═══════════════╤═════════════╤════════════════╤═════════╤══════════╤══════════╤══════════╤══════════╤══════════╤══════════════╤═════════════╤═════════════╤════════════╤══════════╤══════════╤══════════╤══════════╤═════════════════╤══════════════════╤════════════╤══════════════╤══════════════╤═══════════════╤══════════════╤════════════╤═════════╤═════════════╤══════════════════════╤══════════╤═════════╤═════════╤════════════╤══════════╤══════════╤═════════════╤══════════╤══════════╤═══════════╤════════════╤═══════════╤═══════════╤════════════════╤════════════════════╤══════════════╤═════════════╤════════════╤═════════════════════╤═══════════╤════════════╤══════════╤═══════════╤═══════════╤═══════════╤═════════════╤═══════════╤══════════════╤══════════════╤═════════════╤═══════════════╤══════════╤════════════╤═══════════════╤═════════════════╤═════════╤═════════╤═══════════╤════════════╤═══════════╤══════════════╤════════════╤══════════╤══════════╤═══════════════╤═══════════╤══════════╤════════════╤══════════╤══════════╤══════════╤══════════════╤═════════════╤════════════╤═══════════╤══════════╤══════════════╤══════════╤═══════════╤══════════════╤════════════╤════════════╤══════════╤═══════════╤══════════╤═════════╤═══════════╤════════════╤══════════╤══════════════╕
+│   No │ Kalimat                                                                                                                                          │     aceh │   alhamdulillah │   asfis │   asfisfilmkearifanlayarlokalpendekradarjatim │   asosiasi │    barat │   belajar │   bergengsi │   bergerak │   berinteraksi │   berjalan │   berkeliling │   berkembang │   bersamasama │   bertahan │   bertemakan │   bertemu │   bingung │   budaya │   daerah │   daerahdaerah │    dewan │   diduga │   dikemanakan │   diserbu │   disiapkan │   disimpan │     disk │   diskusi │   ekspertnya │   festival │     film │   filmfilm │   filmfilmnya │   filmmaker │   filmmakernya │    full │   gedung │   gratis │    hadir │     hard │       id │   independen │   indonesia │   informasi │   instansi │    jalan │     jawa │     kali │   kampus │   karyakaryanya │   keanekaragaman │   kearifan │   kebanyakan │   keberadaan │   kegiatannya │   kendalanya │   kesenian │   ketua │   komunitas │   komunitaskomunitas │     kota │   kursi │   lahir │   langsung │    layar │    lokal │   lokalitas │    lolos │      mad │   membaik │   membantu │   membuka │   memutar │   mendaftarkan │   mendistribusikan │   mengangkat │   menikmati │   menonton │   mensosialisasikan │   namanya │   nasional │     nusa │   oktober │   panitia │   pelajar │   pelatihan │   pembuat │   pembuatnya │   pemerintah │   pemutaran │   pendaftaran │   pendek │   penonton │   penontonnya │   perjalanannya │   pesen │   prias │   program │   provinsi │   pungkas │   radarjatim │   ratarata │    rehal │   remaja │   satusatunya │   sekedar │   semoga │   sidoarjo │   sineas │      sma │      smk │   submission │   sumputari │   surabaya │   syuting │     tags │   tahuntahun │     tamu │   tanggal │   temanteman │   tenggara │   terhenti │    timur │   tingkat │    tugas │   utama │   wilayah │   workshop │       ya │   Term Count │
+╞══════╪══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╪══════════╪═════════════════╪═════════╪═══════════════════════════════════════════════╪════════════╪══════════╪═══════════╪═════════════╪════════════╪════════════════╪════════════╪═══════════════╪══════════════╪═══════════════╪════════════╪══════════════╪═══════════╪═══════════╪══════════╪══════════╪════════════════╪══════════╪══════════╪═══════════════╪═══════════╪═════════════╪════════════╪══════════╪═══════════╪══════════════╪════════════╪══════════╪════════════╪═══════════════╪═════════════╪════════════════╪═════════╪══════════╪══════════╪══════════╪══════════╪══════════╪══════════════╪═════════════╪═════════════╪════════════╪══════════╪══════════╪══════════╪══════════╪═════════════════╪══════════════════╪════════════╪══════════════╪══════════════╪═══════════════╪══════════════╪════════════╪═════════╪═════════════╪══════════════════════╪══════════╪═════════╪═════════╪════════════╪══════════╪══════════╪═════════════╪══════════╪══════════╪═══════════╪════════════╪═══════════╪═══════════╪════════════════╪════════════════════╪══════════════╪═════════════╪════════════╪═════════════════════╪═══════════╪════════════╪══════════╪═══════════╪═══════════╪═══════════╪═════════════╪═══════════╪══════════════╪══════════════╪═════════════╪═══════════════╪══════════╪════════════╪═══════════════╪═════════════════╪═════════╪═════════╪═══════════╪════════════╪═══════════╪══════════════╪════════════╪══════════╪══════════╪═══════════════╪═══════════╪══════════╪════════════╪══════════╪══════════╪══════════╪══════════════╪═════════════╪════════════╪═══════════╪══════════╪══════════════╪══════════╪═══════════╪══════════════╪════════════╪════════════╪══════════╪═══════════╪══════════╪═════════╪═══════════╪════════════╪══════════╪══════════════╡
+│    1 │ sidoarjo radarjatim.id komunitaskomunitas film pendek sidoarjo bergerak mensosialisasikan keberadaan film pendek berkembang membaik .            │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0.266116 │       0        │   0        │      0        │     0.266116 │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0.234971 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0.23392  │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0.266116 │       0       │     0        │   0        │ 0       │    0        │             0.266116 │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0.266116 │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0.266116 │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0.532232 │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0.266116 │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0.333281 │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │           11 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│    2 │ kali bertemakan keanekaragaman lokalitas budaya tanggal oktober gedung dewan kesenian sidoarjo .                                                 │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0.313654 │  0        │  0        │ 0.275707 │  0       │       0        │ 0.313654 │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0        │    0       │      0        │    0        │        0       │ 0       │ 0.313654 │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0.313654 │ 0        │        0        │         0.313654 │   0        │     0        │     0        │       0       │     0        │   0.313654 │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0.313654 │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0.313654 │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0.196408 │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0.313654 │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │           11 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│    3 │ festival memutar film layar lokal mengangkat kearifan lokal wilayah indonesia diduga diserbu remaja ratarata pelajar sma smk sidoarjo surabaya . │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0.254877 │      0        │  0.254877 │    0        │   0        │ 0        │   0       │     0        │   0.159602 │ 0.112524 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0.224041 │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0.224041 │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0.185192 │ 0.319205 │    0        │ 0        │ 0        │  0        │   0        │  0        │  0.254877 │       0        │           0        │     0.254877 │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0.254877 │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0.254877 │ 0        │ 0.254877 │      0        │  0        │ 0        │   0.159602 │  0       │ 0.254877 │ 0.254877 │     0        │     0       │   0.224041 │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0.254877 │    0       │ 0        │           18 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│    4 │ panitia kursi penonton .                                                                                                                         │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0        │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0.57735 │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0.57735 │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0.57735 │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            3 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│    5 │ ketua asfis asosiasi sineas film sidoarjo rehal lahir prias sumputari kegiatannya program utama pelatihan workshop pemutaran film .              │ 0        │        0        │ 0.25993 │                                      0        │    0.25993 │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0.229509 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0.25993 │     0        │   0        │ 0.25993 │    0        │             0        │ 0        │ 0       │ 0.25993 │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0.25993 │  0        │     0        │     0        │     0.25993 │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0.25993 │   0.25993 │   0        │  0        │     0        │   0        │ 0.20617  │ 0        │      0        │  0        │ 0        │   0.162767 │  0.25993 │ 0        │ 0        │     0        │     0.25993 │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0.25993 │  0        │    0.25993 │ 0        │           16 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│    6 │ membantu temanteman komunitas film sidoarjo mendistribusikan karyakaryanya festival .                                                            │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0.268701 │ 0.189441 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0.429102 │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0.429102 │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0.429102 │  0        │  0        │       0        │           0.429102 │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0.268701 │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0.288438 │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            8 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│    7 │ kebanyakan temanteman kendalanya film syuting .                                                                                                  │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0.238747 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0.475358 │     0        │       0       │     0.540784 │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0.540784 │ 0        │     0        │ 0        │  0        │     0.36351  │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            5 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│    8 │ dikemanakan temanteman bingung disiapkan .                                                                                                       │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0.538238 │ 0        │  0       │       0        │ 0        │ 0        │      0.538238 │  0        │    0.538238 │   0        │ 0        │   0       │     0        │   0        │ 0        │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0.361799 │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            4 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│    9 │ tugas bersamasama jalan pembuat film .                                                                                                           │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0.488246 │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0.215552 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0.488246 │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0.488246 │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0.488246 │ 0       │  0        │    0       │ 0        │            5 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   10 │ film film disimpan hard disk film berkeliling bertemu penontonnya rehal .                                                                        │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0.345377 │     0        │      0        │   0        │     0        │  0.345377 │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0.345377 │ 0.345377 │   0       │     0        │   0        │ 0.457433 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0.345377 │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0.345377 │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0.273944 │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            8 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   11 │ sekedar informasi layar lokal festival film independen satusatunya jawa timur bertahan .                                                         │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0.347529 │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0.217621 │ 0.153428 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0.305484 │    0        │    0.347529 │   0        │ 0        │ 0.347529 │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0.252512 │ 0.217621 │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0.347529 │  0.347529 │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0.347529 │  0        │ 0        │ 0       │  0        │    0       │ 0        │           11 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   12 │ kebanyakan kampus instansi pemerintah ya surabaya festival film independen bergengsi namanya festival perjalanannya terhenti .                   │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0.287701 │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0.360314 │ 0.127015 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0.252894 │    0        │    0        │   0.287701 │ 0        │ 0        │ 0        │ 0.287701 │        0        │         0        │   0        │     0.252894 │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0.287701 │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0.287701 │     0       │      0        │ 0        │    0       │      0        │        0.287701 │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0.252894 │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0.287701 │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0.287701 │           13 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   13 │ alhamdulillah berjalan semoga berjalan tahuntahun .                                                                                              │ 0        │        0.384256 │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0.768511 │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0        │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0.337766 │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0.384256 │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            4 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   14 │ membuka submission pendaftaran film tingkat nasional .                                                                                           │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0.193698 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0.438744 │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0.438744 │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0.438744 │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0.438744 │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0.438744 │ 0        │ 0       │  0        │    0       │ 0        │            6 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   15 │ film mendaftarkan layar lokal provinsi indonesia aceh nusa tenggara barat .                                                                      │ 0.356063 │        0        │ 0       │                                      0        │    0       │ 0.356063 │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0.157195 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0.312985 │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0.258713 │ 0.222965 │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0.356063 │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0.356063 │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0.356063 │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0.356063 │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │           10 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   16 │ pesen temanteman festival gratis full gratis menikmati filmfilm lokal daerah .                                                                   │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0.31256 │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0.195723 │ 0        │    0.31256 │      0        │    0        │        0       │ 0.31256 │ 0        │  0.62512 │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0.195723 │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0.31256 │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0.31256 │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0.2101   │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            9 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   17 │ belajar kearifan lokal budaya daerahdaerah sidoarjo festival film .                                                                              │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0.405923 │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0.405923 │  0       │       0.461793 │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0.289172 │ 0.203874 │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0.405923 │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0.289172 │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0.289172 │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            8 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   18 │ semoga temanteman hadir menonton diskusi filmmakernya .                                                                                          │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0.44734 │     0        │   0        │ 0        │    0       │      0        │    0        │        0.44734 │ 0       │ 0        │  0       │ 0.393219 │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0        │ 0        │ 0        │    0        │ 0        │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0.44734 │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0.393219 │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0        │  0        │     0.300698 │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            6 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   19 │ filmmaker hadir tamu kota filmfilmnya lolos layar lokal .                                                                                        │ 0        │        0        │ 0       │                                      0        │    0       │ 0        │  0        │    0        │   0        │       0        │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0        │   0        │ 0        │    0       │      0.386544 │    0.386544 │        0       │ 0       │ 0        │  0       │ 0.339778 │ 0        │ 0        │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0.386544 │ 0       │ 0       │   0        │ 0.28086  │ 0.242051 │    0        │ 0.386544 │ 0        │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0        │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0        │     0        │   0        │ 0        │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0        │     0        │ 0.386544 │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │            8 │
+├──────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┼───────────────────────────────────────────────┼────────────┼──────────┼───────────┼─────────────┼────────────┼────────────────┼────────────┼───────────────┼──────────────┼───────────────┼────────────┼──────────────┼───────────┼───────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼───────────────┼───────────┼─────────────┼────────────┼──────────┼───────────┼──────────────┼────────────┼──────────┼────────────┼───────────────┼─────────────┼────────────────┼─────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼─────────────┼────────────┼──────────┼──────────┼──────────┼──────────┼─────────────────┼──────────────────┼────────────┼──────────────┼──────────────┼───────────────┼──────────────┼────────────┼─────────┼─────────────┼──────────────────────┼──────────┼─────────┼─────────┼────────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────────┼────────────────────┼──────────────┼─────────────┼────────────┼─────────────────────┼───────────┼────────────┼──────────┼───────────┼───────────┼───────────┼─────────────┼───────────┼──────────────┼──────────────┼─────────────┼───────────────┼──────────┼────────────┼───────────────┼─────────────────┼─────────┼─────────┼───────────┼────────────┼───────────┼──────────────┼────────────┼──────────┼──────────┼───────────────┼───────────┼──────────┼────────────┼──────────┼──────────┼──────────┼──────────────┼─────────────┼────────────┼───────────┼──────────┼──────────────┼──────────┼───────────┼──────────────┼────────────┼────────────┼──────────┼───────────┼──────────┼─────────┼───────────┼────────────┼──────────┼──────────────┤
+│   20 │ berinteraksi langsung pembuatnya belajar langsung ekspertnya pungkas rehal.mad tags asfisfilmkearifanlayarlokalpendekradarjatim.id               │ 0        │        0        │ 0       │                                      0.275508 │    0       │ 0        │  0.242175 │    0        │   0        │       0.275508 │   0        │      0        │     0        │      0        │   0        │     0        │  0        │  0        │ 0        │  0       │       0        │ 0        │ 0        │      0        │  0        │    0        │   0        │ 0        │   0       │     0.275508 │   0        │ 0        │    0       │      0        │    0        │        0       │ 0       │ 0        │  0       │ 0        │ 0        │ 0.242175 │     0        │    0        │    0        │   0        │ 0        │ 0        │ 0        │ 0        │        0        │         0        │   0        │     0        │     0        │       0       │     0        │   0        │ 0       │    0        │             0        │ 0        │ 0       │ 0       │   0.551015 │ 0        │ 0        │    0        │ 0        │ 0.275508 │  0        │   0        │  0        │  0        │       0        │           0        │     0        │     0       │    0       │            0        │  0        │   0        │ 0        │  0        │   0       │  0        │     0       │  0        │     0.275508 │     0        │     0       │      0        │ 0        │    0       │      0        │        0        │ 0       │ 0       │   0       │   0        │  0.275508 │     0        │   0        │ 0.218526 │ 0        │      0        │  0        │ 0        │   0        │  0       │ 0        │ 0        │     0        │     0       │   0        │  0        │ 0.275508 │     0        │ 0        │  0        │     0        │   0        │   0        │ 0        │  0        │ 0        │ 0       │  0        │    0       │ 0        │           11 │
+╘══════╧══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╧══════════╧═════════════════╧═════════╧═══════════════════════════════════════════════╧════════════╧══════════╧═══════════╧═════════════╧════════════╧════════════════╧════════════╧═══════════════╧══════════════╧═══════════════╧════════════╧══════════════╧═══════════╧═══════════╧══════════╧══════════╧════════════════╧══════════╧══════════╧═══════════════╧═══════════╧═════════════╧════════════╧══════════╧═══════════╧══════════════╧════════════╧══════════╧════════════╧═══════════════╧═════════════╧════════════════╧═════════╧══════════╧══════════╧══════════╧══════════╧══════════╧══════════════╧═════════════╧═════════════╧════════════╧══════════╧══════════╧══════════╧══════════╧═════════════════╧══════════════════╧════════════╧══════════════╧══════════════╧═══════════════╧══════════════╧════════════╧═════════╧═════════════╧══════════════════════╧══════════╧═════════╧═════════╧════════════╧══════════╧══════════╧═════════════╧══════════╧══════════╧═══════════╧════════════╧═══════════╧═══════════╧════════════════╧════════════════════╧══════════════╧═════════════╧════════════╧═════════════════════╧═══════════╧════════════╧══════════╧═══════════╧═══════════╧═══════════╧═════════════╧═══════════╧══════════════╧══════════════╧═════════════╧═══════════════╧══════════╧════════════╧═══════════════╧═════════════════╧═════════╧═════════╧═══════════╧════════════╧═══════════╧══════════════╧════════════╧══════════╧══════════╧═══════════════╧═══════════╧══════════╧════════════╧══════════╧══════════╧══════════╧══════════════╧═════════════╧════════════╧═══════════╧══════════╧══════════════╧══════════╧═══════════╧══════════════╧════════════╧════════════╧══════════╧═══════════╧══════════╧═════════╧═══════════╧════════════╧══════════╧══════════════╛
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>130
 </pre></div>
 </div>
 </div>
@@ -1005,7 +746,7 @@ tags: 0.2277
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cosine Similarity antara Kalimat 1 dan Kalimat 2: 0.0736
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cosine Similarity antara Kalimat 1 dan Kalimat 2: 0.0655
 </pre></div>
 </div>
 </div>
@@ -1027,195 +768,195 @@ tags: 0.2277
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cosine Similarity antara Kalimat 1 dan Kalimat 2: 0.0736
-Cosine Similarity antara Kalimat 1 dan Kalimat 3: 0.1029
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cosine Similarity antara Kalimat 1 dan Kalimat 2: 0.0655
+Cosine Similarity antara Kalimat 1 dan Kalimat 3: 0.0796
 Cosine Similarity antara Kalimat 1 dan Kalimat 4: 0.0000
-Cosine Similarity antara Kalimat 1 dan Kalimat 5: 0.0847
-Cosine Similarity antara Kalimat 1 dan Kalimat 6: 0.1817
-Cosine Similarity antara Kalimat 1 dan Kalimat 7: 0.0309
-Cosine Similarity antara Kalimat 1 dan Kalimat 8: 0.0447
-Cosine Similarity antara Kalimat 1 dan Kalimat 9: 0.0290
-Cosine Similarity antara Kalimat 1 dan Kalimat 10: 0.0576
-Cosine Similarity antara Kalimat 1 dan Kalimat 11: 0.0789
-Cosine Similarity antara Kalimat 1 dan Kalimat 12: 0.1198
-Cosine Similarity antara Kalimat 1 dan Kalimat 13: 0.0175
-Cosine Similarity antara Kalimat 1 dan Kalimat 14: 0.0333
-Cosine Similarity antara Kalimat 1 dan Kalimat 15: 0.1543
+Cosine Similarity antara Kalimat 1 dan Kalimat 5: 0.1082
+Cosine Similarity antara Kalimat 1 dan Kalimat 6: 0.1341
+Cosine Similarity antara Kalimat 1 dan Kalimat 7: 0.0561
+Cosine Similarity antara Kalimat 1 dan Kalimat 8: 0.0000
+Cosine Similarity antara Kalimat 1 dan Kalimat 9: 0.0506
+Cosine Similarity antara Kalimat 1 dan Kalimat 10: 0.1075
+Cosine Similarity antara Kalimat 1 dan Kalimat 11: 0.0361
+Cosine Similarity antara Kalimat 1 dan Kalimat 12: 0.0298
+Cosine Similarity antara Kalimat 1 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 1 dan Kalimat 14: 0.0455
+Cosine Similarity antara Kalimat 1 dan Kalimat 15: 0.0369
 Cosine Similarity antara Kalimat 1 dan Kalimat 16: 0.0000
-Cosine Similarity antara Kalimat 1 dan Kalimat 17: 0.1910
-Cosine Similarity antara Kalimat 1 dan Kalimat 18: 0.0286
-Cosine Similarity antara Kalimat 1 dan Kalimat 19: 0.0747
-Cosine Similarity antara Kalimat 1 dan Kalimat 20: 0.0428
-Cosine Similarity antara Kalimat 2 dan Kalimat 3: 0.0644
+Cosine Similarity antara Kalimat 1 dan Kalimat 17: 0.1443
+Cosine Similarity antara Kalimat 1 dan Kalimat 18: 0.0000
+Cosine Similarity antara Kalimat 1 dan Kalimat 19: 0.0000
+Cosine Similarity antara Kalimat 1 dan Kalimat 20: 0.0566
+Cosine Similarity antara Kalimat 2 dan Kalimat 3: 0.0313
 Cosine Similarity antara Kalimat 2 dan Kalimat 4: 0.0000
-Cosine Similarity antara Kalimat 2 dan Kalimat 5: 0.0500
-Cosine Similarity antara Kalimat 2 dan Kalimat 6: 0.0596
-Cosine Similarity antara Kalimat 2 dan Kalimat 7: 0.0642
+Cosine Similarity antara Kalimat 2 dan Kalimat 5: 0.0320
+Cosine Similarity antara Kalimat 2 dan Kalimat 6: 0.0528
+Cosine Similarity antara Kalimat 2 dan Kalimat 7: 0.0000
 Cosine Similarity antara Kalimat 2 dan Kalimat 8: 0.0000
 Cosine Similarity antara Kalimat 2 dan Kalimat 9: 0.0000
-Cosine Similarity antara Kalimat 2 dan Kalimat 10: 0.0227
-Cosine Similarity antara Kalimat 2 dan Kalimat 11: 0.0741
-Cosine Similarity antara Kalimat 2 dan Kalimat 12: 0.0317
-Cosine Similarity antara Kalimat 2 dan Kalimat 13: 0.1069
-Cosine Similarity antara Kalimat 2 dan Kalimat 14: 0.0345
-Cosine Similarity antara Kalimat 2 dan Kalimat 15: 0.0194
-Cosine Similarity antara Kalimat 2 dan Kalimat 16: 0.0248
-Cosine Similarity antara Kalimat 2 dan Kalimat 17: 0.1740
-Cosine Similarity antara Kalimat 2 dan Kalimat 18: 0.0337
+Cosine Similarity antara Kalimat 2 dan Kalimat 10: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 12: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 14: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 15: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 16: 0.0000
+Cosine Similarity antara Kalimat 2 dan Kalimat 17: 0.1687
+Cosine Similarity antara Kalimat 2 dan Kalimat 18: 0.0000
 Cosine Similarity antara Kalimat 2 dan Kalimat 19: 0.0000
 Cosine Similarity antara Kalimat 2 dan Kalimat 20: 0.0000
 Cosine Similarity antara Kalimat 3 dan Kalimat 4: 0.0000
-Cosine Similarity antara Kalimat 3 dan Kalimat 5: 0.0557
-Cosine Similarity antara Kalimat 3 dan Kalimat 6: 0.1437
-Cosine Similarity antara Kalimat 3 dan Kalimat 7: 0.0135
-Cosine Similarity antara Kalimat 3 dan Kalimat 8: 0.0196
-Cosine Similarity antara Kalimat 3 dan Kalimat 9: 0.0127
-Cosine Similarity antara Kalimat 3 dan Kalimat 10: 0.0421
-Cosine Similarity antara Kalimat 3 dan Kalimat 11: 0.1403
-Cosine Similarity antara Kalimat 3 dan Kalimat 12: 0.1629
-Cosine Similarity antara Kalimat 3 dan Kalimat 13: 0.0599
-Cosine Similarity antara Kalimat 3 dan Kalimat 14: 0.0145
-Cosine Similarity antara Kalimat 3 dan Kalimat 15: 0.2136
-Cosine Similarity antara Kalimat 3 dan Kalimat 16: 0.1209
-Cosine Similarity antara Kalimat 3 dan Kalimat 17: 0.2112
-Cosine Similarity antara Kalimat 3 dan Kalimat 18: 0.0651
-Cosine Similarity antara Kalimat 3 dan Kalimat 19: 0.1394
-Cosine Similarity antara Kalimat 3 dan Kalimat 20: 0.0305
+Cosine Similarity antara Kalimat 3 dan Kalimat 5: 0.0518
+Cosine Similarity antara Kalimat 3 dan Kalimat 6: 0.1071
+Cosine Similarity antara Kalimat 3 dan Kalimat 7: 0.0269
+Cosine Similarity antara Kalimat 3 dan Kalimat 8: 0.0000
+Cosine Similarity antara Kalimat 3 dan Kalimat 9: 0.0243
+Cosine Similarity antara Kalimat 3 dan Kalimat 10: 0.0515
+Cosine Similarity antara Kalimat 3 dan Kalimat 11: 0.1682
+Cosine Similarity antara Kalimat 3 dan Kalimat 12: 0.1285
+Cosine Similarity antara Kalimat 3 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 3 dan Kalimat 14: 0.0218
+Cosine Similarity antara Kalimat 3 dan Kalimat 15: 0.2069
+Cosine Similarity antara Kalimat 3 dan Kalimat 16: 0.0937
+Cosine Similarity antara Kalimat 3 dan Kalimat 17: 0.2985
+Cosine Similarity antara Kalimat 3 dan Kalimat 18: 0.0000
+Cosine Similarity antara Kalimat 3 dan Kalimat 19: 0.1293
+Cosine Similarity antara Kalimat 3 dan Kalimat 20: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 5: 0.0000
-Cosine Similarity antara Kalimat 4 dan Kalimat 6: 0.0613
+Cosine Similarity antara Kalimat 4 dan Kalimat 6: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 7: 0.0000
-Cosine Similarity antara Kalimat 4 dan Kalimat 8: 0.0972
-Cosine Similarity antara Kalimat 4 dan Kalimat 9: 0.0597
+Cosine Similarity antara Kalimat 4 dan Kalimat 8: 0.0000
+Cosine Similarity antara Kalimat 4 dan Kalimat 9: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 10: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 11: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 12: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 13: 0.0000
-Cosine Similarity antara Kalimat 4 dan Kalimat 14: 0.0685
+Cosine Similarity antara Kalimat 4 dan Kalimat 14: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 15: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 16: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 17: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 18: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 19: 0.0000
 Cosine Similarity antara Kalimat 4 dan Kalimat 20: 0.0000
-Cosine Similarity antara Kalimat 5 dan Kalimat 6: 0.0546
-Cosine Similarity antara Kalimat 5 dan Kalimat 7: 0.0283
+Cosine Similarity antara Kalimat 5 dan Kalimat 6: 0.0872
+Cosine Similarity antara Kalimat 5 dan Kalimat 7: 0.0548
 Cosine Similarity antara Kalimat 5 dan Kalimat 8: 0.0000
-Cosine Similarity antara Kalimat 5 dan Kalimat 9: 0.0265
-Cosine Similarity antara Kalimat 5 dan Kalimat 10: 0.0987
-Cosine Similarity antara Kalimat 5 dan Kalimat 11: 0.0234
-Cosine Similarity antara Kalimat 5 dan Kalimat 12: 0.0178
-Cosine Similarity antara Kalimat 5 dan Kalimat 13: 0.0465
-Cosine Similarity antara Kalimat 5 dan Kalimat 14: 0.0304
-Cosine Similarity antara Kalimat 5 dan Kalimat 15: 0.0218
+Cosine Similarity antara Kalimat 5 dan Kalimat 9: 0.0495
+Cosine Similarity antara Kalimat 5 dan Kalimat 10: 0.1615
+Cosine Similarity antara Kalimat 5 dan Kalimat 11: 0.0352
+Cosine Similarity antara Kalimat 5 dan Kalimat 12: 0.0292
+Cosine Similarity antara Kalimat 5 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 5 dan Kalimat 14: 0.0445
+Cosine Similarity antara Kalimat 5 dan Kalimat 15: 0.0361
 Cosine Similarity antara Kalimat 5 dan Kalimat 16: 0.0000
-Cosine Similarity antara Kalimat 5 dan Kalimat 17: 0.0516
-Cosine Similarity antara Kalimat 5 dan Kalimat 18: 0.0261
+Cosine Similarity antara Kalimat 5 dan Kalimat 17: 0.0939
+Cosine Similarity antara Kalimat 5 dan Kalimat 18: 0.0000
 Cosine Similarity antara Kalimat 5 dan Kalimat 19: 0.0000
-Cosine Similarity antara Kalimat 5 dan Kalimat 20: 0.0319
-Cosine Similarity antara Kalimat 6 dan Kalimat 7: 0.0661
-Cosine Similarity antara Kalimat 6 dan Kalimat 8: 0.0770
-Cosine Similarity antara Kalimat 6 dan Kalimat 9: 0.0694
-Cosine Similarity antara Kalimat 6 dan Kalimat 10: 0.0371
-Cosine Similarity antara Kalimat 6 dan Kalimat 11: 0.1489
-Cosine Similarity antara Kalimat 6 dan Kalimat 12: 0.1576
-Cosine Similarity antara Kalimat 6 dan Kalimat 13: 0.0226
-Cosine Similarity antara Kalimat 6 dan Kalimat 14: 0.0795
-Cosine Similarity antara Kalimat 6 dan Kalimat 15: 0.1410
-Cosine Similarity antara Kalimat 6 dan Kalimat 16: 0.1162
-Cosine Similarity antara Kalimat 6 dan Kalimat 17: 0.2029
-Cosine Similarity antara Kalimat 6 dan Kalimat 18: 0.1385
-Cosine Similarity antara Kalimat 6 dan Kalimat 19: 0.0482
+Cosine Similarity antara Kalimat 5 dan Kalimat 20: 0.0451
+Cosine Similarity antara Kalimat 6 dan Kalimat 7: 0.1501
+Cosine Similarity antara Kalimat 6 dan Kalimat 8: 0.1044
+Cosine Similarity antara Kalimat 6 dan Kalimat 9: 0.0408
+Cosine Similarity antara Kalimat 6 dan Kalimat 10: 0.0867
+Cosine Similarity antara Kalimat 6 dan Kalimat 11: 0.0875
+Cosine Similarity antara Kalimat 6 dan Kalimat 12: 0.1209
+Cosine Similarity antara Kalimat 6 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 6 dan Kalimat 14: 0.0367
+Cosine Similarity antara Kalimat 6 dan Kalimat 15: 0.0298
+Cosine Similarity antara Kalimat 6 dan Kalimat 16: 0.1132
+Cosine Similarity antara Kalimat 6 dan Kalimat 17: 0.1940
+Cosine Similarity antara Kalimat 6 dan Kalimat 18: 0.0867
+Cosine Similarity antara Kalimat 6 dan Kalimat 19: 0.0000
 Cosine Similarity antara Kalimat 6 dan Kalimat 20: 0.0000
-Cosine Similarity antara Kalimat 7 dan Kalimat 8: 0.0500
-Cosine Similarity antara Kalimat 7 dan Kalimat 9: 0.0194
-Cosine Similarity antara Kalimat 7 dan Kalimat 10: 0.0385
-Cosine Similarity antara Kalimat 7 dan Kalimat 11: 0.1935
-Cosine Similarity antara Kalimat 7 dan Kalimat 12: 0.0645
-Cosine Similarity antara Kalimat 7 dan Kalimat 13: 0.1144
-Cosine Similarity antara Kalimat 7 dan Kalimat 14: 0.1007
-Cosine Similarity antara Kalimat 7 dan Kalimat 15: 0.0159
-Cosine Similarity antara Kalimat 7 dan Kalimat 16: 0.0933
-Cosine Similarity antara Kalimat 7 dan Kalimat 17: 0.0852
-Cosine Similarity antara Kalimat 7 dan Kalimat 18: 0.0441
+Cosine Similarity antara Kalimat 7 dan Kalimat 8: 0.1315
+Cosine Similarity antara Kalimat 7 dan Kalimat 9: 0.0515
+Cosine Similarity antara Kalimat 7 dan Kalimat 10: 0.1092
+Cosine Similarity antara Kalimat 7 dan Kalimat 11: 0.0366
+Cosine Similarity antara Kalimat 7 dan Kalimat 12: 0.1505
+Cosine Similarity antara Kalimat 7 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 7 dan Kalimat 14: 0.0462
+Cosine Similarity antara Kalimat 7 dan Kalimat 15: 0.0375
+Cosine Similarity antara Kalimat 7 dan Kalimat 16: 0.0764
+Cosine Similarity antara Kalimat 7 dan Kalimat 17: 0.0487
+Cosine Similarity antara Kalimat 7 dan Kalimat 18: 0.1093
 Cosine Similarity antara Kalimat 7 dan Kalimat 19: 0.0000
 Cosine Similarity antara Kalimat 7 dan Kalimat 20: 0.0000
-Cosine Similarity antara Kalimat 8 dan Kalimat 9: 0.0549
-Cosine Similarity antara Kalimat 8 dan Kalimat 10: 0.0363
-Cosine Similarity antara Kalimat 8 dan Kalimat 11: 0.0826
-Cosine Similarity antara Kalimat 8 dan Kalimat 12: 0.1181
+Cosine Similarity antara Kalimat 8 dan Kalimat 9: 0.0000
+Cosine Similarity antara Kalimat 8 dan Kalimat 10: 0.0000
+Cosine Similarity antara Kalimat 8 dan Kalimat 11: 0.0000
+Cosine Similarity antara Kalimat 8 dan Kalimat 12: 0.0000
 Cosine Similarity antara Kalimat 8 dan Kalimat 13: 0.0000
 Cosine Similarity antara Kalimat 8 dan Kalimat 14: 0.0000
-Cosine Similarity antara Kalimat 8 dan Kalimat 15: 0.0461
-Cosine Similarity antara Kalimat 8 dan Kalimat 16: 0.0386
-Cosine Similarity antara Kalimat 8 dan Kalimat 17: 0.0272
-Cosine Similarity antara Kalimat 8 dan Kalimat 18: 0.0460
-Cosine Similarity antara Kalimat 8 dan Kalimat 19: 0.0522
+Cosine Similarity antara Kalimat 8 dan Kalimat 15: 0.0000
+Cosine Similarity antara Kalimat 8 dan Kalimat 16: 0.0760
+Cosine Similarity antara Kalimat 8 dan Kalimat 17: 0.0000
+Cosine Similarity antara Kalimat 8 dan Kalimat 18: 0.1088
+Cosine Similarity antara Kalimat 8 dan Kalimat 19: 0.0000
 Cosine Similarity antara Kalimat 8 dan Kalimat 20: 0.0000
-Cosine Similarity antara Kalimat 9 dan Kalimat 10: 0.0688
-Cosine Similarity antara Kalimat 9 dan Kalimat 11: 0.0161
-Cosine Similarity antara Kalimat 9 dan Kalimat 12: 0.0452
-Cosine Similarity antara Kalimat 9 dan Kalimat 13: 0.0368
-Cosine Similarity antara Kalimat 9 dan Kalimat 14: 0.1258
-Cosine Similarity antara Kalimat 9 dan Kalimat 15: 0.0150
+Cosine Similarity antara Kalimat 9 dan Kalimat 10: 0.0986
+Cosine Similarity antara Kalimat 9 dan Kalimat 11: 0.0331
+Cosine Similarity antara Kalimat 9 dan Kalimat 12: 0.0274
+Cosine Similarity antara Kalimat 9 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 9 dan Kalimat 14: 0.0418
+Cosine Similarity antara Kalimat 9 dan Kalimat 15: 0.0339
 Cosine Similarity antara Kalimat 9 dan Kalimat 16: 0.0000
-Cosine Similarity antara Kalimat 9 dan Kalimat 17: 0.0586
+Cosine Similarity antara Kalimat 9 dan Kalimat 17: 0.0439
 Cosine Similarity antara Kalimat 9 dan Kalimat 18: 0.0000
 Cosine Similarity antara Kalimat 9 dan Kalimat 19: 0.0000
-Cosine Similarity antara Kalimat 9 dan Kalimat 20: 0.0315
-Cosine Similarity antara Kalimat 10 dan Kalimat 11: 0.0320
-Cosine Similarity antara Kalimat 10 dan Kalimat 12: 0.0461
-Cosine Similarity antara Kalimat 10 dan Kalimat 13: 0.0635
-Cosine Similarity antara Kalimat 10 dan Kalimat 14: 0.0415
-Cosine Similarity antara Kalimat 10 dan Kalimat 15: 0.0617
-Cosine Similarity antara Kalimat 10 dan Kalimat 16: 0.0199
-Cosine Similarity antara Kalimat 10 dan Kalimat 17: 0.0586
-Cosine Similarity antara Kalimat 10 dan Kalimat 18: 0.0713
-Cosine Similarity antara Kalimat 10 dan Kalimat 19: 0.0362
-Cosine Similarity antara Kalimat 10 dan Kalimat 20: 0.1183
-Cosine Similarity antara Kalimat 11 dan Kalimat 12: 0.2262
-Cosine Similarity antara Kalimat 11 dan Kalimat 13: 0.1143
-Cosine Similarity antara Kalimat 11 dan Kalimat 14: 0.0835
-Cosine Similarity antara Kalimat 11 dan Kalimat 15: 0.1732
-Cosine Similarity antara Kalimat 11 dan Kalimat 16: 0.0999
-Cosine Similarity antara Kalimat 11 dan Kalimat 17: 0.1982
-Cosine Similarity antara Kalimat 11 dan Kalimat 18: 0.0509
-Cosine Similarity antara Kalimat 11 dan Kalimat 19: 0.1120
+Cosine Similarity antara Kalimat 9 dan Kalimat 20: 0.0000
+Cosine Similarity antara Kalimat 10 dan Kalimat 11: 0.0702
+Cosine Similarity antara Kalimat 10 dan Kalimat 12: 0.0581
+Cosine Similarity antara Kalimat 10 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 10 dan Kalimat 14: 0.0886
+Cosine Similarity antara Kalimat 10 dan Kalimat 15: 0.0719
+Cosine Similarity antara Kalimat 10 dan Kalimat 16: 0.0000
+Cosine Similarity antara Kalimat 10 dan Kalimat 17: 0.0933
+Cosine Similarity antara Kalimat 10 dan Kalimat 18: 0.0000
+Cosine Similarity antara Kalimat 10 dan Kalimat 19: 0.0000
+Cosine Similarity antara Kalimat 10 dan Kalimat 20: 0.0599
+Cosine Similarity antara Kalimat 11 dan Kalimat 12: 0.1752
+Cosine Similarity antara Kalimat 11 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 11 dan Kalimat 14: 0.0297
+Cosine Similarity antara Kalimat 11 dan Kalimat 15: 0.1380
+Cosine Similarity antara Kalimat 11 dan Kalimat 16: 0.0852
+Cosine Similarity antara Kalimat 11 dan Kalimat 17: 0.1571
+Cosine Similarity antara Kalimat 11 dan Kalimat 18: 0.0000
+Cosine Similarity antara Kalimat 11 dan Kalimat 19: 0.1236
 Cosine Similarity antara Kalimat 11 dan Kalimat 20: 0.0000
-Cosine Similarity antara Kalimat 12 dan Kalimat 13: 0.0639
-Cosine Similarity antara Kalimat 12 dan Kalimat 14: 0.0591
-Cosine Similarity antara Kalimat 12 dan Kalimat 15: 0.2588
-Cosine Similarity antara Kalimat 12 dan Kalimat 16: 0.0869
-Cosine Similarity antara Kalimat 12 dan Kalimat 17: 0.1815
-Cosine Similarity antara Kalimat 12 dan Kalimat 18: 0.0240
-Cosine Similarity antara Kalimat 12 dan Kalimat 19: 0.1154
+Cosine Similarity antara Kalimat 12 dan Kalimat 13: 0.0000
+Cosine Similarity antara Kalimat 12 dan Kalimat 14: 0.0246
+Cosine Similarity antara Kalimat 12 dan Kalimat 15: 0.0200
+Cosine Similarity antara Kalimat 12 dan Kalimat 16: 0.0705
+Cosine Similarity antara Kalimat 12 dan Kalimat 17: 0.1301
+Cosine Similarity antara Kalimat 12 dan Kalimat 18: 0.0000
+Cosine Similarity antara Kalimat 12 dan Kalimat 19: 0.0000
 Cosine Similarity antara Kalimat 12 dan Kalimat 20: 0.0000
-Cosine Similarity antara Kalimat 13 dan Kalimat 14: 0.1331
-Cosine Similarity antara Kalimat 13 dan Kalimat 15: 0.0181
-Cosine Similarity antara Kalimat 13 dan Kalimat 16: 0.0493
-Cosine Similarity antara Kalimat 13 dan Kalimat 17: 0.1366
-Cosine Similarity antara Kalimat 13 dan Kalimat 18: 0.1870
+Cosine Similarity antara Kalimat 13 dan Kalimat 14: 0.0000
+Cosine Similarity antara Kalimat 13 dan Kalimat 15: 0.0000
+Cosine Similarity antara Kalimat 13 dan Kalimat 16: 0.0000
+Cosine Similarity antara Kalimat 13 dan Kalimat 17: 0.0000
+Cosine Similarity antara Kalimat 13 dan Kalimat 18: 0.1328
 Cosine Similarity antara Kalimat 13 dan Kalimat 19: 0.0000
-Cosine Similarity antara Kalimat 13 dan Kalimat 20: 0.0513
-Cosine Similarity antara Kalimat 14 dan Kalimat 15: 0.0171
-Cosine Similarity antara Kalimat 14 dan Kalimat 16: 0.0303
-Cosine Similarity antara Kalimat 14 dan Kalimat 17: 0.1028
+Cosine Similarity antara Kalimat 13 dan Kalimat 20: 0.0000
+Cosine Similarity antara Kalimat 14 dan Kalimat 15: 0.0304
+Cosine Similarity antara Kalimat 14 dan Kalimat 16: 0.0000
+Cosine Similarity antara Kalimat 14 dan Kalimat 17: 0.0395
 Cosine Similarity antara Kalimat 14 dan Kalimat 18: 0.0000
 Cosine Similarity antara Kalimat 14 dan Kalimat 19: 0.0000
-Cosine Similarity antara Kalimat 14 dan Kalimat 20: 0.0360
-Cosine Similarity antara Kalimat 15 dan Kalimat 16: 0.0818
-Cosine Similarity antara Kalimat 15 dan Kalimat 17: 0.1823
-Cosine Similarity antara Kalimat 15 dan Kalimat 18: 0.0589
-Cosine Similarity antara Kalimat 15 dan Kalimat 19: 0.2519
+Cosine Similarity antara Kalimat 14 dan Kalimat 20: 0.0000
+Cosine Similarity antara Kalimat 15 dan Kalimat 16: 0.0436
+Cosine Similarity antara Kalimat 15 dan Kalimat 17: 0.0965
+Cosine Similarity antara Kalimat 15 dan Kalimat 18: 0.0000
+Cosine Similarity antara Kalimat 15 dan Kalimat 19: 0.1266
 Cosine Similarity antara Kalimat 15 dan Kalimat 20: 0.0000
 Cosine Similarity antara Kalimat 16 dan Kalimat 17: 0.1132
-Cosine Similarity antara Kalimat 16 dan Kalimat 18: 0.0930
-Cosine Similarity antara Kalimat 16 dan Kalimat 19: 0.0602
-Cosine Similarity antara Kalimat 16 dan Kalimat 20: 0.0667
-Cosine Similarity antara Kalimat 17 dan Kalimat 18: 0.1044
-Cosine Similarity antara Kalimat 17 dan Kalimat 19: 0.1435
-Cosine Similarity antara Kalimat 17 dan Kalimat 20: 0.1091
-Cosine Similarity antara Kalimat 18 dan Kalimat 19: 0.1314
-Cosine Similarity antara Kalimat 18 dan Kalimat 20: 0.2017
+Cosine Similarity antara Kalimat 16 dan Kalimat 18: 0.0632
+Cosine Similarity antara Kalimat 16 dan Kalimat 19: 0.0474
+Cosine Similarity antara Kalimat 16 dan Kalimat 20: 0.0000
+Cosine Similarity antara Kalimat 17 dan Kalimat 18: 0.0000
+Cosine Similarity antara Kalimat 17 dan Kalimat 19: 0.0700
+Cosine Similarity antara Kalimat 17 dan Kalimat 20: 0.0983
+Cosine Similarity antara Kalimat 18 dan Kalimat 19: 0.1336
+Cosine Similarity antara Kalimat 18 dan Kalimat 20: 0.0000
 Cosine Similarity antara Kalimat 19 dan Kalimat 20: 0.0000
 </pre></div>
 </div>
@@ -1242,7 +983,7 @@ Cosine Similarity antara Kalimat 19 dan Kalimat 20: 0.0000
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a5e335f3-4bda-49d3-9563-82e649f9db05" class="colab-df-container">
+  <div id="df-7c2f644d-6aa1-4f24-afb4-0d2dc59433d8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1287,88 +1028,88 @@ Cosine Similarity antara Kalimat 19 dan Kalimat 20: 0.0000
     <tr>
       <th>Kalimat 1</th>
       <td>1.000000</td>
-      <td>0.073598</td>
-      <td>0.102947</td>
+      <td>0.065459</td>
+      <td>0.079632</td>
+      <td>0.0</td>
+      <td>0.108175</td>
+      <td>0.134066</td>
+      <td>0.056099</td>
       <td>0.000000</td>
-      <td>0.084747</td>
-      <td>0.181662</td>
-      <td>0.030922</td>
-      <td>0.044732</td>
-      <td>0.029016</td>
-      <td>0.057633</td>
-      <td>0.078934</td>
-      <td>0.119797</td>
-      <td>0.017547</td>
-      <td>0.033256</td>
-      <td>0.154325</td>
+      <td>0.050648</td>
+      <td>0.107483</td>
+      <td>0.036051</td>
+      <td>0.029845</td>
       <td>0.000000</td>
-      <td>0.190956</td>
-      <td>0.028591</td>
-      <td>0.074730</td>
-      <td>0.042847</td>
+      <td>0.045513</td>
+      <td>0.036936</td>
+      <td>0.000000</td>
+      <td>0.144280</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.056650</td>
     </tr>
     <tr>
       <th>Kalimat 2</th>
-      <td>0.073598</td>
+      <td>0.065459</td>
       <td>1.000000</td>
-      <td>0.064384</td>
+      <td>0.031347</td>
+      <td>0.0</td>
+      <td>0.031969</td>
+      <td>0.052775</td>
       <td>0.000000</td>
-      <td>0.050025</td>
-      <td>0.059587</td>
-      <td>0.064205</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.022747</td>
-      <td>0.074140</td>
-      <td>0.031709</td>
-      <td>0.106895</td>
-      <td>0.034525</td>
-      <td>0.019437</td>
-      <td>0.024773</td>
-      <td>0.174001</td>
-      <td>0.033655</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.168712</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 3</th>
-      <td>0.102947</td>
-      <td>0.064384</td>
+      <td>0.079632</td>
+      <td>0.031347</td>
       <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.051803</td>
+      <td>0.107087</td>
+      <td>0.026865</td>
       <td>0.000000</td>
-      <td>0.055657</td>
-      <td>0.143668</td>
-      <td>0.013525</td>
-      <td>0.019566</td>
-      <td>0.012692</td>
-      <td>0.042114</td>
-      <td>0.140343</td>
-      <td>0.162946</td>
-      <td>0.059908</td>
-      <td>0.014546</td>
-      <td>0.213554</td>
-      <td>0.120878</td>
-      <td>0.211210</td>
-      <td>0.065142</td>
-      <td>0.139403</td>
-      <td>0.030520</td>
+      <td>0.024255</td>
+      <td>0.051472</td>
+      <td>0.168226</td>
+      <td>0.128458</td>
+      <td>0.000000</td>
+      <td>0.021796</td>
+      <td>0.206892</td>
+      <td>0.093714</td>
+      <td>0.298494</td>
+      <td>0.000000</td>
+      <td>0.129277</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 4</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>0.061331</td>
-      <td>0.000000</td>
-      <td>0.097221</td>
-      <td>0.059725</td>
+      <td>1.0</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.068452</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1378,369 +1119,369 @@ Cosine Similarity antara Kalimat 19 dan Kalimat 20: 0.0000
     </tr>
     <tr>
       <th>Kalimat 5</th>
-      <td>0.084747</td>
-      <td>0.050025</td>
-      <td>0.055657</td>
-      <td>0.000000</td>
+      <td>0.108175</td>
+      <td>0.031969</td>
+      <td>0.051803</td>
+      <td>0.0</td>
       <td>1.000000</td>
-      <td>0.054619</td>
-      <td>0.028258</td>
+      <td>0.087214</td>
+      <td>0.054795</td>
       <td>0.000000</td>
-      <td>0.026516</td>
-      <td>0.098662</td>
-      <td>0.023427</td>
-      <td>0.017760</td>
-      <td>0.046548</td>
-      <td>0.030391</td>
-      <td>0.021774</td>
+      <td>0.049471</td>
+      <td>0.161464</td>
+      <td>0.035213</td>
+      <td>0.029151</td>
       <td>0.000000</td>
-      <td>0.051553</td>
-      <td>0.026128</td>
+      <td>0.044455</td>
+      <td>0.036078</td>
       <td>0.000000</td>
-      <td>0.031882</td>
+      <td>0.093858</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.045053</td>
     </tr>
     <tr>
       <th>Kalimat 6</th>
-      <td>0.181662</td>
-      <td>0.059587</td>
-      <td>0.143668</td>
-      <td>0.061331</td>
-      <td>0.054619</td>
+      <td>0.134066</td>
+      <td>0.052775</td>
+      <td>0.107087</td>
+      <td>0.0</td>
+      <td>0.087214</td>
       <td>1.000000</td>
-      <td>0.066130</td>
-      <td>0.077048</td>
-      <td>0.069354</td>
-      <td>0.037144</td>
-      <td>0.148891</td>
-      <td>0.157567</td>
-      <td>0.022617</td>
-      <td>0.079488</td>
-      <td>0.140998</td>
-      <td>0.116231</td>
-      <td>0.202893</td>
-      <td>0.138452</td>
-      <td>0.048164</td>
+      <td>0.150079</td>
+      <td>0.104357</td>
+      <td>0.040834</td>
+      <td>0.086657</td>
+      <td>0.087541</td>
+      <td>0.120879</td>
+      <td>0.000000</td>
+      <td>0.036694</td>
+      <td>0.029779</td>
+      <td>0.113192</td>
+      <td>0.194024</td>
+      <td>0.086733</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 7</th>
-      <td>0.030922</td>
-      <td>0.064205</td>
-      <td>0.013525</td>
+      <td>0.056099</td>
       <td>0.000000</td>
-      <td>0.028258</td>
-      <td>0.066130</td>
+      <td>0.026865</td>
+      <td>0.0</td>
+      <td>0.054795</td>
+      <td>0.150079</td>
       <td>1.000000</td>
-      <td>0.050040</td>
-      <td>0.019407</td>
-      <td>0.038548</td>
-      <td>0.193472</td>
-      <td>0.064530</td>
-      <td>0.114403</td>
-      <td>0.100716</td>
-      <td>0.015936</td>
-      <td>0.093305</td>
-      <td>0.085173</td>
-      <td>0.044072</td>
+      <td>0.131518</td>
+      <td>0.051462</td>
+      <td>0.109211</td>
+      <td>0.036630</td>
+      <td>0.150539</td>
+      <td>0.000000</td>
+      <td>0.046245</td>
+      <td>0.037530</td>
+      <td>0.076373</td>
+      <td>0.048674</td>
+      <td>0.109307</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 8</th>
-      <td>0.044732</td>
       <td>0.000000</td>
-      <td>0.019566</td>
-      <td>0.097221</td>
       <td>0.000000</td>
-      <td>0.077048</td>
-      <td>0.050040</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.104357</td>
+      <td>0.131518</td>
       <td>1.000000</td>
-      <td>0.054864</td>
-      <td>0.036325</td>
-      <td>0.082566</td>
-      <td>0.118145</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.046108</td>
-      <td>0.038615</td>
-      <td>0.027212</td>
-      <td>0.045997</td>
-      <td>0.052167</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.076014</td>
+      <td>0.000000</td>
+      <td>0.108792</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 9</th>
-      <td>0.029016</td>
+      <td>0.050648</td>
       <td>0.000000</td>
-      <td>0.012692</td>
-      <td>0.059725</td>
-      <td>0.026516</td>
-      <td>0.069354</td>
-      <td>0.019407</td>
-      <td>0.054864</td>
+      <td>0.024255</td>
+      <td>0.0</td>
+      <td>0.049471</td>
+      <td>0.040834</td>
+      <td>0.051462</td>
+      <td>0.000000</td>
       <td>1.000000</td>
-      <td>0.068831</td>
-      <td>0.016089</td>
-      <td>0.045236</td>
-      <td>0.036837</td>
-      <td>0.125794</td>
-      <td>0.014954</td>
+      <td>0.098601</td>
+      <td>0.033072</td>
+      <td>0.027378</td>
       <td>0.000000</td>
-      <td>0.058570</td>
+      <td>0.041752</td>
+      <td>0.033884</td>
+      <td>0.000000</td>
+      <td>0.043945</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.031452</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 10</th>
-      <td>0.057633</td>
-      <td>0.022747</td>
-      <td>0.042114</td>
+      <td>0.107483</td>
       <td>0.000000</td>
-      <td>0.098662</td>
-      <td>0.037144</td>
-      <td>0.038548</td>
-      <td>0.036325</td>
-      <td>0.068831</td>
+      <td>0.051472</td>
+      <td>0.0</td>
+      <td>0.161464</td>
+      <td>0.086657</td>
+      <td>0.109211</td>
+      <td>0.000000</td>
+      <td>0.098601</td>
       <td>1.000000</td>
-      <td>0.031957</td>
-      <td>0.046102</td>
-      <td>0.063498</td>
-      <td>0.041457</td>
-      <td>0.061661</td>
-      <td>0.019948</td>
-      <td>0.058571</td>
-      <td>0.071286</td>
-      <td>0.036158</td>
-      <td>0.118285</td>
+      <td>0.070183</td>
+      <td>0.058101</td>
+      <td>0.000000</td>
+      <td>0.088604</td>
+      <td>0.071906</td>
+      <td>0.000000</td>
+      <td>0.093258</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.059864</td>
     </tr>
     <tr>
       <th>Kalimat 11</th>
-      <td>0.078934</td>
-      <td>0.074140</td>
-      <td>0.140343</td>
+      <td>0.036051</td>
       <td>0.000000</td>
-      <td>0.023427</td>
-      <td>0.148891</td>
-      <td>0.193472</td>
-      <td>0.082566</td>
-      <td>0.016089</td>
-      <td>0.031957</td>
+      <td>0.168226</td>
+      <td>0.0</td>
+      <td>0.035213</td>
+      <td>0.087541</td>
+      <td>0.036630</td>
+      <td>0.000000</td>
+      <td>0.033072</td>
+      <td>0.070183</td>
       <td>1.000000</td>
-      <td>0.226172</td>
-      <td>0.114301</td>
-      <td>0.083495</td>
-      <td>0.173160</td>
-      <td>0.099916</td>
-      <td>0.198202</td>
-      <td>0.050873</td>
-      <td>0.111998</td>
+      <td>0.175154</td>
+      <td>0.000000</td>
+      <td>0.029719</td>
+      <td>0.137968</td>
+      <td>0.085187</td>
+      <td>0.157140</td>
+      <td>0.000000</td>
+      <td>0.123596</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 12</th>
-      <td>0.119797</td>
-      <td>0.031709</td>
-      <td>0.162946</td>
+      <td>0.029845</td>
       <td>0.000000</td>
-      <td>0.017760</td>
-      <td>0.157567</td>
-      <td>0.064530</td>
-      <td>0.118145</td>
-      <td>0.045236</td>
-      <td>0.046102</td>
-      <td>0.226172</td>
+      <td>0.128458</td>
+      <td>0.0</td>
+      <td>0.029151</td>
+      <td>0.120879</td>
+      <td>0.150539</td>
+      <td>0.000000</td>
+      <td>0.027378</td>
+      <td>0.058101</td>
+      <td>0.175154</td>
       <td>1.000000</td>
-      <td>0.063858</td>
-      <td>0.059104</td>
-      <td>0.258822</td>
-      <td>0.086868</td>
-      <td>0.181497</td>
-      <td>0.024038</td>
-      <td>0.115370</td>
+      <td>0.000000</td>
+      <td>0.024603</td>
+      <td>0.019966</td>
+      <td>0.070522</td>
+      <td>0.130088</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 13</th>
-      <td>0.017547</td>
-      <td>0.106895</td>
-      <td>0.059908</td>
       <td>0.000000</td>
-      <td>0.046548</td>
-      <td>0.022617</td>
-      <td>0.114403</td>
       <td>0.000000</td>
-      <td>0.036837</td>
-      <td>0.063498</td>
-      <td>0.114301</td>
-      <td>0.063858</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>1.000000</td>
-      <td>0.133131</td>
-      <td>0.018086</td>
-      <td>0.049340</td>
-      <td>0.136553</td>
-      <td>0.186970</td>
       <td>0.000000</td>
-      <td>0.051260</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.132816</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 14</th>
-      <td>0.033256</td>
-      <td>0.034525</td>
-      <td>0.014546</td>
-      <td>0.068452</td>
-      <td>0.030391</td>
-      <td>0.079488</td>
-      <td>0.100716</td>
+      <td>0.045513</td>
       <td>0.000000</td>
-      <td>0.125794</td>
-      <td>0.041457</td>
-      <td>0.083495</td>
-      <td>0.059104</td>
-      <td>0.133131</td>
+      <td>0.021796</td>
+      <td>0.0</td>
+      <td>0.044455</td>
+      <td>0.036694</td>
+      <td>0.046245</td>
+      <td>0.000000</td>
+      <td>0.041752</td>
+      <td>0.088604</td>
+      <td>0.029719</td>
+      <td>0.024603</td>
+      <td>0.000000</td>
       <td>1.000000</td>
-      <td>0.017139</td>
-      <td>0.030277</td>
-      <td>0.102814</td>
+      <td>0.030448</td>
+      <td>0.000000</td>
+      <td>0.039490</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.036048</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 15</th>
-      <td>0.154325</td>
-      <td>0.019437</td>
-      <td>0.213554</td>
+      <td>0.036936</td>
       <td>0.000000</td>
-      <td>0.021774</td>
-      <td>0.140998</td>
-      <td>0.015936</td>
-      <td>0.046108</td>
-      <td>0.014954</td>
-      <td>0.061661</td>
-      <td>0.173160</td>
-      <td>0.258822</td>
-      <td>0.018086</td>
-      <td>0.017139</td>
+      <td>0.206892</td>
+      <td>0.0</td>
+      <td>0.036078</td>
+      <td>0.029779</td>
+      <td>0.037530</td>
+      <td>0.000000</td>
+      <td>0.033884</td>
+      <td>0.071906</td>
+      <td>0.137968</td>
+      <td>0.019966</td>
+      <td>0.000000</td>
+      <td>0.030448</td>
       <td>1.000000</td>
-      <td>0.081759</td>
-      <td>0.182334</td>
-      <td>0.058941</td>
-      <td>0.251870</td>
+      <td>0.043639</td>
+      <td>0.096523</td>
+      <td>0.000000</td>
+      <td>0.126631</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 16</th>
       <td>0.000000</td>
-      <td>0.024773</td>
-      <td>0.120878</td>
+      <td>0.000000</td>
+      <td>0.093714</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.113192</td>
+      <td>0.076373</td>
+      <td>0.076014</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.116231</td>
-      <td>0.093305</td>
-      <td>0.038615</td>
+      <td>0.085187</td>
+      <td>0.070522</td>
       <td>0.000000</td>
-      <td>0.019948</td>
-      <td>0.099916</td>
-      <td>0.086868</td>
-      <td>0.049340</td>
-      <td>0.030277</td>
-      <td>0.081759</td>
+      <td>0.000000</td>
+      <td>0.043639</td>
       <td>1.000000</td>
-      <td>0.113214</td>
-      <td>0.093038</td>
-      <td>0.060247</td>
-      <td>0.066676</td>
+      <td>0.113195</td>
+      <td>0.063177</td>
+      <td>0.047375</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 17</th>
-      <td>0.190956</td>
-      <td>0.174001</td>
-      <td>0.211210</td>
+      <td>0.144280</td>
+      <td>0.168712</td>
+      <td>0.298494</td>
+      <td>0.0</td>
+      <td>0.093858</td>
+      <td>0.194024</td>
+      <td>0.048674</td>
       <td>0.000000</td>
-      <td>0.051553</td>
-      <td>0.202893</td>
-      <td>0.085173</td>
-      <td>0.027212</td>
-      <td>0.058570</td>
-      <td>0.058571</td>
-      <td>0.198202</td>
-      <td>0.181497</td>
-      <td>0.136553</td>
-      <td>0.102814</td>
-      <td>0.182334</td>
-      <td>0.113214</td>
+      <td>0.043945</td>
+      <td>0.093258</td>
+      <td>0.157140</td>
+      <td>0.130088</td>
+      <td>0.000000</td>
+      <td>0.039490</td>
+      <td>0.096523</td>
+      <td>0.113195</td>
       <td>1.000000</td>
-      <td>0.104357</td>
-      <td>0.143461</td>
-      <td>0.109070</td>
+      <td>0.000000</td>
+      <td>0.069995</td>
+      <td>0.098305</td>
     </tr>
     <tr>
       <th>Kalimat 18</th>
-      <td>0.028591</td>
-      <td>0.033655</td>
-      <td>0.065142</td>
       <td>0.000000</td>
-      <td>0.026128</td>
-      <td>0.138452</td>
-      <td>0.044072</td>
-      <td>0.045997</td>
       <td>0.000000</td>
-      <td>0.071286</td>
-      <td>0.050873</td>
-      <td>0.024038</td>
-      <td>0.186970</td>
       <td>0.000000</td>
-      <td>0.058941</td>
-      <td>0.093038</td>
-      <td>0.104357</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.086733</td>
+      <td>0.109307</td>
+      <td>0.108792</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.132816</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.063177</td>
+      <td>0.000000</td>
       <td>1.000000</td>
-      <td>0.131405</td>
-      <td>0.201745</td>
+      <td>0.133607</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 19</th>
-      <td>0.074730</td>
-      <td>0.000000</td>
-      <td>0.139403</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.048164</td>
-      <td>0.000000</td>
-      <td>0.052167</td>
-      <td>0.000000</td>
-      <td>0.036158</td>
-      <td>0.111998</td>
-      <td>0.115370</td>
+      <td>0.129277</td>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.251870</td>
-      <td>0.060247</td>
-      <td>0.143461</td>
-      <td>0.131405</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.123596</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.126631</td>
+      <td>0.047375</td>
+      <td>0.069995</td>
+      <td>0.133607</td>
       <td>1.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>Kalimat 20</th>
-      <td>0.042847</td>
-      <td>0.000000</td>
-      <td>0.030520</td>
-      <td>0.000000</td>
-      <td>0.031882</td>
+      <td>0.056650</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.045053</td>
       <td>0.000000</td>
-      <td>0.031452</td>
-      <td>0.118285</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.051260</td>
-      <td>0.036048</td>
       <td>0.000000</td>
-      <td>0.066676</td>
-      <td>0.109070</td>
-      <td>0.201745</td>
+      <td>0.059864</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.098305</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>1.000000</td>
     </tr>
@@ -1750,7 +1491,7 @@ Cosine Similarity antara Kalimat 19 dan Kalimat 20: 0.0000
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a5e335f3-4bda-49d3-9563-82e649f9db05')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7c2f644d-6aa1-4f24-afb4-0d2dc59433d8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1802,12 +1543,12 @@ Cosine Similarity antara Kalimat 19 dan Kalimat 20: 0.0000
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a5e335f3-4bda-49d3-9563-82e649f9db05 button.colab-df-convert');
+        document.querySelector('#df-7c2f644d-6aa1-4f24-afb4-0d2dc59433d8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a5e335f3-4bda-49d3-9563-82e649f9db05');
+        const element = document.querySelector('#df-7c2f644d-6aa1-4f24-afb4-0d2dc59433d8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1867,7 +1608,7 @@ Cosine Similarity antara Kalimat 19 dan Kalimat 20: 0.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e0321ab7e2e1c2f0ccf2ccf4489146d0edf882636abb7769d700dec6e7fa8b74.png" src="_images/e0321ab7e2e1c2f0ccf2ccf4489146d0edf882636abb7769d700dec6e7fa8b74.png" />
+<img alt="_images/0a983c3f1c8b7a08dec534038a3d5219e48cfdcd839eb7fca536cbf61a929a4a.png" src="_images/0a983c3f1c8b7a08dec534038a3d5219e48cfdcd839eb7fca536cbf61a929a4a.png" />
 </div>
 </div>
 <p>closeness centrality</p>
@@ -1902,27 +1643,27 @@ Cosine Similarity antara Kalimat 19 dan Kalimat 20: 0.0000
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closeness Centrality of 
-sidoarjo radarjatim.id  komunitaskomunitas film pendek yang ada di sidoarjo terus bergerak mensosialisasikan keberadaan film pendek yang berkembang membaik.: 20.9131
-Closeness Centrality of kali ini bertemakan keanekaragaman lokalitas dan budaya pada tanggal  oktober  di gedung dewan kesenian sidoarjo.: 21.4249
-Closeness Centrality of festival yang memutar film layar lokal mengangkat kearifan lokal dari berbagai wilayah di indonesia tersebut tak diduga diserbu oleh para remaja ratarata pelajar sma smk sidoarjo surabaya dan sekitarnya.: 24.3034
-Closeness Centrality of sehingga panitia pun harus menambahkan kursi untuk penonton.: 11.3832
-Closeness Centrality of ketua asfis asosiasi sineas film sidoarjo rehal lahir prias sumputari mengatakan kalau kegiatannya mempunyai tiga program utama yaitu pelatihan workshop dan pemutaran film.: 22.6213
-Closeness Centrality of juga membantu temanteman komunitas film yang ada di sidoarjo khususnya untuk mendistribusikan karyakaryanya ke berbagai festival.: 17.0678
-Closeness Centrality of karena kebanyakan temanteman saat ini kendalanya adalah bagaimana film ini setelah syuting.: 24.4871
-Closeness Centrality of itu mau dikemanakan temanteman masih bingung apa saja yang harus disiapkan.: 20.5578
-Closeness Centrality of itu menjadi tugas kami untuk bersamasama kita jalan lebih baik sebagai pembuat film.: 25.7560
-Closeness Centrality of jadi tidak hanya membuat film tidak hanya film jadi disimpan dalam hard disk tapi film itu bisa berkeliling dan bertemu penontonnya ungkap rehal.: 21.0738
-Closeness Centrality of kemudian sekedar informasi juga layar lokal ini merupakan festival film independen satusatunya di jawa timur yang masih bertahan saat ini.: 21.5649
-Closeness Centrality of yang lainnya kebanyakan dari kampus dari instansi pemerintah kemudian di tahun  atau  ya di surabaya itu masih ada satu festival film independen yang bergengsi namanya festival kecil namun perjalanannya terhenti.: 18.8100
-Closeness Centrality of dan saat ini kita alhamdulillah sudah berjalan selama  tahun dan semoga bisa berjalan di tahuntahun selanjutnya.: 21.0316
-Closeness Centrality of tahun ini kita kembali membuka submission pendaftaran film untuk tingkat nasional.: 24.4998
-Closeness Centrality of ada  film yang mendaftarkan dalam layar lokal kemudian dari  provinsi yang ada di indonesia mulai dari aceh sampai nusa tenggara barat.: 25.8490
-Closeness Centrality of pesen saya buat temanteman ini festival gratis full gratis kalian bisa menikmati filmfilm lokal dari berbagai daerah jelasnya.: 18.9442
-Closeness Centrality of kita bisa belajar tentang kearifan lokal maupun budaya yang ada di daerahdaerah di luar sidoarjo melalui festival film ini.: 14.2421
-Closeness Centrality of semoga temanteman bisa hadir dan bisa menonton nantinya akan ada diskusi juga dengan para filmmakernya.: 18.4006
-Closeness Centrality of filmmaker yang akan hadir sekitar  tamu dari luar kota yang terutama filmfilmnya lolos dalam layar lokal.: 13.4827
+sidoarjo radarjatim.id  komunitaskomunitas film pendek yang ada di sidoarjo terus bergerak mensosialisasikan keberadaan film pendek yang berkembang membaik.: 11.1557
+Closeness Centrality of kali ini bertemakan keanekaragaman lokalitas dan budaya pada tanggal  oktober  di gedung dewan kesenian sidoarjo.: 10.4167
+Closeness Centrality of festival yang memutar film layar lokal mengangkat kearifan lokal dari berbagai wilayah di indonesia tersebut tak diduga diserbu oleh para remaja ratarata pelajar sma smk sidoarjo surabaya dan sekitarnya.: 11.9402
+Closeness Centrality of sehingga panitia pun harus menambahkan kursi untuk penonton.: 0.0000
+Closeness Centrality of ketua asfis asosiasi sineas film sidoarjo rehal lahir prias sumputari mengatakan kalau kegiatannya mempunyai tiga program utama yaitu pelatihan workshop dan pemutaran film.: 11.7186
+Closeness Centrality of juga membantu temanteman komunitas film yang ada di sidoarjo khususnya untuk mendistribusikan karyakaryanya ke berbagai festival.: 12.0666
+Closeness Centrality of karena kebanyakan temanteman saat ini kendalanya adalah bagaimana film ini setelah syuting.: 12.2053
+Closeness Centrality of itu mau dikemanakan temanteman masih bingung apa saja yang harus disiapkan.: 6.3340
+Closeness Centrality of itu menjadi tugas kami untuk bersamasama kita jalan lebih baik sebagai pembuat film.: 12.6614
+Closeness Centrality of jadi tidak hanya membuat film tidak hanya film jadi disimpan dalam hard disk tapi film itu bisa berkeliling dan bertemu penontonnya ungkap rehal.: 8.8545
+Closeness Centrality of kemudian sekedar informasi juga layar lokal ini merupakan festival film independen satusatunya di jawa timur yang masih bertahan saat ini.: 11.4862
+Closeness Centrality of yang lainnya kebanyakan dari kampus dari instansi pemerintah kemudian di tahun  atau  ya di surabaya itu masih ada satu festival film independen yang bergengsi namanya festival kecil namun perjalanannya terhenti.: 13.1477
+Closeness Centrality of dan saat ini kita alhamdulillah sudah berjalan selama  tahun dan semoga bisa berjalan di tahuntahun selanjutnya.: 3.7221
+Closeness Centrality of tahun ini kita kembali membuka submission pendaftaran film untuk tingkat nasional.: 13.3127
+Closeness Centrality of ada  film yang mendaftarkan dalam layar lokal kemudian dari  provinsi yang ada di indonesia mulai dari aceh sampai nusa tenggara barat.: 13.8774
+Closeness Centrality of pesen saya buat temanteman ini festival gratis full gratis kalian bisa menikmati filmfilm lokal dari berbagai daerah jelasnya.: 10.6873
+Closeness Centrality of kita bisa belajar tentang kearifan lokal maupun budaya yang ada di daerahdaerah di luar sidoarjo melalui festival film ini.: 9.8110
+Closeness Centrality of semoga temanteman bisa hadir dan bisa menonton nantinya akan ada diskusi juga dengan para filmmakernya.: 7.3391
+Closeness Centrality of filmmaker yang akan hadir sekitar  tamu dari luar kota yang terutama filmfilmnya lolos dalam layar lokal.: 7.5529
 Closeness Centrality of jadi kalian bisa berinteraksi langsung dengan para pembuatnya kita belajar langsung dengan ekspertnya pungkas rehal.mad
-tags asfisfilmkearifanlayarlokalpendekradarjatim.id: 17.7713
+tags asfisfilmkearifanlayarlokalpendekradarjatim.id: 8.2511
 </pre></div>
 </div>
 </div>
@@ -1962,7 +1703,7 @@ tags asfisfilmkearifanlayarlokalpendekradarjatim.id: 17.7713
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2997da39abcd5dae2b7608b57cf9ff22db4b7ed29270e9ff845951ec8c649d97.png" src="_images/2997da39abcd5dae2b7608b57cf9ff22db4b7ed29270e9ff845951ec8c649d97.png" />
+<img alt="_images/d98ed94c34d012414968ae3d3eb0a8d1af2a8478ddeccbcc73dbc30516a5dc3b.png" src="_images/d98ed94c34d012414968ae3d3eb0a8d1af2a8478ddeccbcc73dbc30516a5dc3b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1979,26 +1720,26 @@ tags asfisfilmkearifanlayarlokalpendekradarjatim.id: 17.7713
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closeness Centrality:
-Node 16: 0.3876
-Node 14: 0.3553
-Node 11: 0.3279
-Node 10: 0.3045
-Node 0: 0.2664
-Node 2: 0.2664
-Node 5: 0.2508
-Node 1: 0.2244
-Node 18: 0.2132
-Node 6: 0.1938
-Node 17: 0.1053
-Node 12: 0.0702
-Node 19: 0.0702
+Node 16: 0.2579
+Node 10: 0.2344
+Node 2: 0.2149
+Node 5: 0.1984
+Node 11: 0.1842
+Node 1: 0.1612
+Node 6: 0.1612
+Node 14: 0.1433
+Node 4: 0.0526
+Node 9: 0.0526
+Node 0: 0.0000
 Node 3: 0.0000
-Node 4: 0.0000
 Node 7: 0.0000
 Node 8: 0.0000
-Node 9: 0.0000
+Node 12: 0.0000
 Node 13: 0.0000
 Node 15: 0.0000
+Node 17: 0.0000
+Node 18: 0.0000
+Node 19: 0.0000
 </pre></div>
 </div>
 </div>
@@ -2028,7 +1769,7 @@ Node 15: 0.0000
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-4038c3ab-9b97-4310-adaf-2c78947e9c0e" class="colab-df-container">
+  <div id="df-14fe9e6e-924f-4a69-944a-22f096646340" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2056,20 +1797,20 @@ Node 15: 0.0000
     <tr>
       <th>0</th>
       <td>16</td>
-      <td>0.387560</td>
+      <td>0.257895</td>
       <td>kita bisa belajar tentang kearifan lokal maupu...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>14</td>
-      <td>0.355263</td>
-      <td>ada  film yang mendaftarkan dalam layar lokal ...</td>
+      <td>10</td>
+      <td>0.234450</td>
+      <td>kemudian sekedar informasi juga layar lokal in...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>11</td>
-      <td>0.327935</td>
-      <td>yang lainnya kebanyakan dari kampus dari insta...</td>
+      <td>2</td>
+      <td>0.214912</td>
+      <td>festival yang memutar film layar lokal mengang...</td>
     </tr>
   </tbody>
 </table>
@@ -2077,7 +1818,7 @@ Node 15: 0.0000
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4038c3ab-9b97-4310-adaf-2c78947e9c0e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-14fe9e6e-924f-4a69-944a-22f096646340')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2129,12 +1870,12 @@ Node 15: 0.0000
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4038c3ab-9b97-4310-adaf-2c78947e9c0e button.colab-df-convert');
+        document.querySelector('#df-14fe9e6e-924f-4a69-944a-22f096646340 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4038c3ab-9b97-4310-adaf-2c78947e9c0e');
+        const element = document.querySelector('#df-14fe9e6e-924f-4a69-944a-22f096646340');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2172,26 +1913,26 @@ Node 15: 0.0000
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PageRank :
-Node 16: 0.1384
-Node 14: 0.1209
-Node 17: 0.1039
-Node 11: 0.0976
-Node 10: 0.0858
-Node 0: 0.0621
-Node 5: 0.0617
-Node 2: 0.0612
-Node 12: 0.0548
-Node 19: 0.0548
-Node 6: 0.0289
-Node 18: 0.0278
-Node 1: 0.0275
-Node 3: 0.0107
-Node 4: 0.0107
-Node 7: 0.0107
-Node 8: 0.0107
-Node 9: 0.0107
-Node 13: 0.0107
-Node 15: 0.0107
+Node 16: 0.1473
+Node 2: 0.1139
+Node 10: 0.1097
+Node 4: 0.0870
+Node 9: 0.0870
+Node 6: 0.0793
+Node 5: 0.0780
+Node 11: 0.0778
+Node 14: 0.0453
+Node 1: 0.0443
+Node 0: 0.0130
+Node 3: 0.0130
+Node 7: 0.0130
+Node 8: 0.0130
+Node 12: 0.0130
+Node 13: 0.0130
+Node 15: 0.0130
+Node 17: 0.0130
+Node 18: 0.0130
+Node 19: 0.0130
 </pre></div>
 </div>
 </div>
@@ -2221,7 +1962,7 @@ Node 15: 0.0107
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-09836831-1c42-4af3-99db-632197415182" class="colab-df-container">
+  <div id="df-cb00196b-d764-4a9c-8aff-678588757078" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2249,20 +1990,20 @@ Node 15: 0.0107
     <tr>
       <th>0</th>
       <td>16</td>
-      <td>0.138376</td>
+      <td>0.147251</td>
       <td>kita bisa belajar tentang kearifan lokal maupu...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>14</td>
-      <td>0.120856</td>
-      <td>ada  film yang mendaftarkan dalam layar lokal ...</td>
+      <td>2</td>
+      <td>0.113938</td>
+      <td>festival yang memutar film layar lokal mengang...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>17</td>
-      <td>0.103880</td>
-      <td>semoga temanteman bisa hadir dan bisa menonton...</td>
+      <td>10</td>
+      <td>0.109688</td>
+      <td>kemudian sekedar informasi juga layar lokal in...</td>
     </tr>
   </tbody>
 </table>
@@ -2270,7 +2011,7 @@ Node 15: 0.0107
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-09836831-1c42-4af3-99db-632197415182')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-cb00196b-d764-4a9c-8aff-678588757078')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2322,12 +2063,12 @@ Node 15: 0.0107
 
     <script>
       const buttonEl =
-        document.querySelector('#df-09836831-1c42-4af3-99db-632197415182 button.colab-df-convert');
+        document.querySelector('#df-cb00196b-d764-4a9c-8aff-678588757078 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-09836831-1c42-4af3-99db-632197415182');
+        const element = document.querySelector('#df-cb00196b-d764-4a9c-8aff-678588757078');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2367,24 +2108,24 @@ Node 15: 0.0107
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame Betweenness Centrality:
-Node 16: 0.0741
-Node 14: 0.0614
-Node 10: 0.0468
-Node 11: 0.0166
-Node 17: 0.0058
-Node 0: 0.0039
-Node 5: 0.0019
+Node 16: 0.0585
+Node 2: 0.0351
+Node 10: 0.0292
+Node 5: 0.0175
+Node 11: 0.0117
+Node 6: 0.0058
+Node 0: 0.0000
 Node 1: 0.0000
-Node 2: 0.0000
 Node 3: 0.0000
 Node 4: 0.0000
-Node 6: 0.0000
 Node 7: 0.0000
 Node 8: 0.0000
 Node 9: 0.0000
 Node 12: 0.0000
 Node 13: 0.0000
+Node 14: 0.0000
 Node 15: 0.0000
+Node 17: 0.0000
 Node 18: 0.0000
 Node 19: 0.0000
 </pre></div>
@@ -2416,7 +2157,7 @@ Node 19: 0.0000
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-dd89cc19-4f1f-4d06-beed-dda18ff86bf7" class="colab-df-container">
+  <div id="df-249559b7-f6fc-47c0-b267-e1ef70e867c3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2444,19 +2185,19 @@ Node 19: 0.0000
     <tr>
       <th>0</th>
       <td>16</td>
-      <td>0.074074</td>
+      <td>0.058480</td>
       <td>kita bisa belajar tentang kearifan lokal maupu...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>14</td>
-      <td>0.061404</td>
-      <td>ada  film yang mendaftarkan dalam layar lokal ...</td>
+      <td>2</td>
+      <td>0.035088</td>
+      <td>festival yang memutar film layar lokal mengang...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>10</td>
-      <td>0.046784</td>
+      <td>0.029240</td>
       <td>kemudian sekedar informasi juga layar lokal in...</td>
     </tr>
   </tbody>
@@ -2465,7 +2206,7 @@ Node 19: 0.0000
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-dd89cc19-4f1f-4d06-beed-dda18ff86bf7')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-249559b7-f6fc-47c0-b267-e1ef70e867c3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2517,12 +2258,12 @@ Node 19: 0.0000
 
     <script>
       const buttonEl =
-        document.querySelector('#df-dd89cc19-4f1f-4d06-beed-dda18ff86bf7 button.colab-df-convert');
+        document.querySelector('#df-249559b7-f6fc-47c0-b267-e1ef70e867c3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-dd89cc19-4f1f-4d06-beed-dda18ff86bf7');
+        const element = document.querySelector('#df-249559b7-f6fc-47c0-b267-e1ef70e867c3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
