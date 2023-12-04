@@ -19,7 +19,7 @@ import pandas as pd
 import csv
 
 # Gantilah 'path_to_your_file.xlsx' dengan path ke file XLSX yang ingin Anda baca
-df = pd.read_csv('https://raw.githubusercontent.com/SalmatulFarida/PPW/gh-pages/Peritungan%20Manual%20Cosinnes%20Similarity.csv', delimiter=";")
+df = pd.read_csv('https://raw.githubusercontent.com/SalmatulFarida/PPW/gh-pages/Peritungan%20Manual%20PageRank.csv', delimiter=";")
 
 df_filled = df.fillna('')
 df_filled
@@ -28,10 +28,10 @@ df_filled
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mHTTPError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-1-abb9c2ee5562>[0m in [0;36m<cell line: 5>[0;34m()[0m
+[0;32m<ipython-input-1-7348ad3810dc>[0m in [0;36m<cell line: 5>[0;34m()[0m
 [1;32m      3[0m [0;34m[0m[0m
 [1;32m      4[0m [0;31m# Gantilah 'path_to_your_file.xlsx' dengan path ke file XLSX yang ingin Anda baca[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 5[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'https://raw.githubusercontent.com/SalmatulFarida/PPW/gh-pages/Peritungan%20Manual%20Cosinnes%20Similarity.csv'[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m";"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'https://raw.githubusercontent.com/SalmatulFarida/PPW/gh-pages/Peritungan%20Manual%20PageRank.csv'[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m";"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      6[0m [0;34m[0m[0m
 [1;32m      7[0m [0mdf_filled[0m [0;34m=[0m [0mdf[0m[0;34m.[0m[0mfillna[0m[0;34m([0m[0;34m''[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
